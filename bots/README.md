@@ -1,6 +1,6 @@
 # Starting Point: Bot Examples
 
-This folder contains all simulations relating to the original strategic influencer model. This stems from the original example with a single strategic agent and five naive agents.
+This folder contains all simulations relating to the bot extensions of the strategic influencer model. These stem from the original example with a single strategic agent and five naive agents.
 
 ## May-June 2021
 
