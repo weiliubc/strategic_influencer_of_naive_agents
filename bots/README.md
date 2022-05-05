@@ -17,6 +17,9 @@ Some discussion points (Wei):
 ### [Bot as Sixth Agent](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/bot_as_sixth_agent.pdf)
 This notebook implements some improvements to the modification of the model for having a "bot" agent; notably, the bot is added as an additional naive agent and excluded from the opinion cost term so as to preserve the state of the original network for comparison purposes. This notebook still contains the strategy code typo as mentioned above, though it was possible to conclude that the presence of bots prevents all naive agents from converging to exactly the strategic agent's agenda, though they do converge somewhere.
 
+### [Bot Convergence Tests](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/bot_convergence_tests.pdf)
+This notebook implements the fix to the code that initially caused the optimal solution to appear like the myopic solution (this turned out to be due to an incorrectly transposed B vector). This notebook explores convergence of opinions in bot networks with various values of delta, most cases which demonstrated convergence to a point away from the strategic agent's agenda. "Tail" structures were observed in some plots of messages where convergence of messages to a nonzero point trended towards zero at the very end; this turned out to be due to using finite-horizon solutions.
+
 ## July 2021
 
 ### [Convergence of Cycles](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/convergence_of_cycles.pdf)
