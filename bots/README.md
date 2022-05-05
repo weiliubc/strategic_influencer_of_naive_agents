@@ -13,3 +13,12 @@ Some discussion points (Wei):
 - Superbots: there are two things. First, if agent 1 (in line 30, page 16) does not listen at all, then his opinion clearly does not change if he is a stubborn naive agent and the strategic agent cares about his opinion. As my earlier message mentioned, if the strategic agent cares about him, total cost is unbounded and this problem does not have a solution. If strategic agent does not care about agent 1, then it may be fine. I think if strategic agent does not care about bots, and if her messages are unbounded, and all naive agents listen somewhat to the strategic agents, the opinions will go to 0 (but not her messages). It will be great to know if this is correct, or there is a counterexample.
 
 ## July 2021
+
+### [Convergence of Cycles](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/convergence_of_cycles.pdf)
+This notebook explores the following matrix, which has a cyclic structure:
+```
+[0, 0.5, 0.5]
+[0.99, 0, 0]
+[0.99, 0, 0]
+```
+It was concluded that oscillatory behaviour in the agent opinions arises due to the presence of this cycle, but also that the presence of stubborn agents can "dampen" the oscillations and induce convergence.
