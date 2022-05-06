@@ -31,6 +31,9 @@ This notebook adds the strategic agent as a "seventh naive agent" to the model t
 ### [Opinions vs Agenda Distance](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/opinions_vs_agenda_distance.pdf)
 This notebook explores the formulation of the naive agent limit opinions as a function of the distance between the agendas of the bot and strategic agent. It was concluded that a linear relationship is present between the opinions and each of the two individual agendas.
 
+### [Steady-State vs Optimal](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/steady_state_vs_optimal.pdf)
+This notebook addresses the issue that when adding the strategic agent as a seventh agent to the network, r_ss is used as her opinion instead of the true sequence of r_t. This notebook compares the two sequences in terms of limits and convergence, which was found to only differ in the short-run as both sequences converge to r_ss in the long-run. Convergence time for purely using r_ss as the messages each period was found to be much worse than using the true r_t for each t.
+
 ### [Convergence of Cycles](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/convergence_of_cycles.pdf)
 This notebook explores the following matrix, which has a cyclic structure:
 ```
