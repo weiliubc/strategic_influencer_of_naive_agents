@@ -28,6 +28,9 @@ This notebook adds the strategic agent as a "seventh naive agent" to the model t
 
 ## July 2021
 
+### [Opinions vs Agenda Distance](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/opinions_vs_agenda_distance.pdf)
+This notebook explores the formulation of the naive agent limit opinions as a function of the distance between the agendas of the bot and strategic agent. It was concluded that a linear relationship is present between the opinions and each of the two individual agendas.
+
 ### [Convergence of Cycles](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/convergence_of_cycles.pdf)
 This notebook explores the following matrix, which has a cyclic structure:
 ```
