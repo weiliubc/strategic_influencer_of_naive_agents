@@ -20,6 +20,9 @@ This notebook implements some improvements to the modification of the model for 
 ### [Bot Convergence Tests](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/bot_convergence_tests.pdf)
 This notebook implements the fix to the code that initially caused the optimal solution to appear like the myopic solution (this turned out to be due to an incorrectly transposed B vector). This notebook explores convergence of opinions in bot networks with various values of delta, most cases which demonstrated convergence to a point away from the strategic agent's agenda. "Tail" structures were observed in some plots of messages where convergence of messages to a nonzero point trended towards zero at the very end; this turned out to be due to using finite-horizon solutions instead of steady-state infinite-horizon solutions.
 
+### [Limit Matrix Eigenvectors](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/limit_matrix_eigenvectors.pdf)
+This notebook, in addition to using the proper steady-state matrices for infinite-horizon models from above, explores the limiting matrix (\tilde A+\tilde BL_{ss})^t as t goes to infinity. Most of this matrix converges to zero (due to the influence of the bot being dominant over the other naive agents), except the column with the same index as the bot, which has values exactly 1/10th of the steady-state opinions. This 10 arises from the choice of initial opinion for the bot.
+
 ## July 2021
 
 ### [Convergence of Cycles](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/convergence_of_cycles.pdf)
