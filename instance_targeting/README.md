@@ -10,3 +10,11 @@ This notebook explores the model via several comparative statics exercises. Nota
 [0.7, 0.3]
 [0.5, 0.5]
 ```
+
+### [Singular-Instance Targeting with a Stubborn Agent](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/instance_targeting/instance_targeting_stubborn.ipynb)
+This notebook is the exact same as the above one except the A matrix is replaced with:
+```
+[0.99, 0.01]
+[0.5, 0.5]
+```
+which generates a stubborn agent like in the original simulations. All the results found in the previous notebook hold in this one except for the fact that r has a maximum in delta instead of continuously increasing in delta.
