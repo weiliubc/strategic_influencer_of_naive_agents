@@ -4,6 +4,8 @@ This folder contains experiments with symbolic solvers used to evaluate algebrai
 
 ## August 2021
 
-### [Demo]()
+### [Demo](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/symbolic/demo.pdf)
+This notebook is a brief demo of the SymPy symbolic solver in Python and how it can be used for analysis of the algebraic riccati equations.
 
-### [First-Order Conditions]()
+### [First-Order Conditions](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/symbolic/first_order_conditions.pdf)
+This notebook is similar to the previous but focuses on one first-order condition example using the recursive equations.
