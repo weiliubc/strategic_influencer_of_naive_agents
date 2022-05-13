@@ -23,4 +23,5 @@ This notebook, hosted in the multiple strategic agents folder, does the above ex
 
 ## October 2021
 
-### [Symbolic Targeting Solution: first agent](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/symbolic/symbolic_target_first.pdf)
+### Symbolic Targeting Solution: [first agent](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/symbolic/symbolic_target_first.pdf) and [second agent](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/symbolic/symbolic_target_second.pdf)
+These notebooks attempt to symbolically solve scenarios where the strategic agent targets a particular naive agent. The resulting expressions were not easy to work with due to their complexity.
