@@ -48,6 +48,6 @@ It was concluded that oscillatory behaviour in the agent opinions arises due to 
 ### [Bot Influence Weight Analysis](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/bot_influence_weight_analysis.pdf)
 This notebook explores a few observations with respect to the limit influence weights of the strategic agent and a bot. These included:
 - two agents with identical weights had identical limit influence
-- if a bot and strategic agent have weights B = c, then they have identical limit influence
+- if a bot and strategic agent have weights B_i = c_i, then they have identical limit influence on agent i
 - in a targeting scenario where the strategic agent or bot targets a unique naive agent, more influence is given to targeted agents by the agent doing the targeting
 - limit opinions in connected subnetworks linked to the strategic agent by a single representative share the same limit opinions as the representative
