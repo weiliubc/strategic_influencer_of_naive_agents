@@ -6,3 +6,10 @@ This folder contains notebooks regarding models where naive agents have initial 
 
 ### [Quick Test](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/quick_test.pdf)
 This notebook is a quick test of the model with naive agents with opposing initial opinions and explores several cases and comparative statics.
+```
+In the examples with the 10 and -5 agent agendas, the steady-state opinion is 0.609 (closer to the -5).
+In the perfect opposite case (10 and -10), it is exactly in between: 0.
+In the deviating from perfect opposite case (10 and just slightly above -10), it is a very small positive number (but still closer to the slightly above -10 agenda).
+In the greater deviation case (10 and -9), the opinion is 0.122 (the midpoint is 0.5 so since 0.122 < 0.5, it is closer to the -9).
+If I then create a new case with 5 and -9 (shifting the 10), the opinion is -0.487 (the midpoint is -2 so now this is closer to the 5).
+```
