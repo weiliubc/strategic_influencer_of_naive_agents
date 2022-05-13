@@ -51,3 +51,6 @@ This notebook explores a few observations with respect to the limit influence we
 - if a bot and strategic agent have weights B = c, then they have identical limit influence
 - in a targeting scenario where the strategic agent or bot targets a unique naive agent, more influence is given to targeted agents by the agent doing the targeting
 - limit opinions in connected subnetworks linked to the strategic agent by a single representative share the same limit opinions as the representative
+
+### [r_ss Statics](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/rss_statics.pdf)
+This notebook conducts comparative statics with respect to factors that impact the steady-state message r_ss. A few non-explicit relationships were identified.
