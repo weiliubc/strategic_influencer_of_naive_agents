@@ -15,3 +15,4 @@ This notebook extends a few tests from the previous one. In addition to clarifyi
 
 ### [Cost Variations](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/cost_variations.pdf)
 This notebook varies the R cost term of each strategic agent's messages. It was concluded that message magnitude was inversely related to message cost, and that as cost is driven upwards, the equilibrium strategy of each strategic agent approaches the strategy of a single strategic agent in the noncompetitive model under the same parameters.
+![Visual representation](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/cost_variations.gif)
