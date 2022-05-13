@@ -9,3 +9,6 @@ This notebook provides a first test of the Bellman equations for the multiple st
 
 ### [Multiple Agent Test Suite](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/multiple_agent_test_suite.pdf)
 This notebook runs five tests to ensure correctness and compatibility with previous notebooks, followed by a series of experiments on the multiple strategic agent model. The delta = 1 case, which previously did not converge, was found to not converge here either (and was due to exclusively the kappa matrix i.e. the constant term). Strategies between the two strategic agents appeared to decrease in each other, and a limit matrix was identified.
+
+### [Test Suite Extensions](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/test_suite_extensions.pdf)
+This notebook extends a few tests from the previous one. In addition to clarifying a handful of points from the previous notebook, a distinction was made between the Nash equilibrium and the socially optimal solution of the basic two strategic agent case with a written explanation.
