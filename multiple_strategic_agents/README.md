@@ -32,3 +32,6 @@ At this point in time, I generated a series of graphs comparing what happened wh
 
 ### [Analytical Multi-Message Verification](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/analytical_multi_message_verification.pdf)
 This notebook uses SymPy to compute the solution of a simple form and example of the the dual strategic agent model which helped prove that the previous code was incorrect.
+
+### [Multi-Agent Debugging](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/multi_agent_debugging.pdf)
+This notebook debugs the incorrect equations and fixes an indexing typo in doing so. One remaining issue was identified afterwards in the scaling of r_t^2 in comparison to the analytical check.
