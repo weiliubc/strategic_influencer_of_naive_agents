@@ -54,3 +54,6 @@ This notebook explores a few observations with respect to the limit influence we
 
 ### [r_ss Statics](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/rss_statics.pdf)
 This notebook conducts comparative statics with respect to factors that impact the steady-state message r_ss. A few non-explicit relationships were identified.
+
+### [Myopic vs Optimal](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/bots/myopic_vs_optimal.pdf)
+This notebook conducts further statics, specifically comparing myopic strategies to optimal strategies; in particular, the apparent relationship between a low-delta optimal strategy and the myopic strategy.
