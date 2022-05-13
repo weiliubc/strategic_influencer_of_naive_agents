@@ -12,3 +12,6 @@ This notebook is similar to the previous but focuses on one first-order conditio
 
 ### [Analytical Multi-Message Verification](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/analytical_multi_message_verification.pdf)
 This notebook, hosted in the multiple strategic agents folder, provides another symbolic example of the above using a particular set of initial parameters.
+
+### [Analytical Multi-Message Verification (fixed)](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/analytical_multi_message_verification_fixed.pdf)
+This notebook fixes a sign typo in the above notebook.
