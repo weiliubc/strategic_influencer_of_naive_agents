@@ -27,3 +27,7 @@ This notebook revises the above notebook to correctly split 2b = 0.3 such that b
 
 ### [Benchmarks with Dual Message](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/benchmarks_dual_message.pdf)
 This notebook expands on the above notebook to have the single strategic agent model produce two messages at once instead of one message at once. It turned out that using one message only is more optimal than using two, except at cost extrema where they are equally optimal. The dual strategic agent case also turned out to be better than the dual message case in the single agent model, likely due to the single agent having to take on the contrary-to-socially-optimal-solution weight of two messages. Much of these results are due to the fact that there is only one naive agent, so there may be differences if more agents are added.
+
+At this point in time, I generated a series of graphs comparing what happened when the weights of each message in the dual message case were different from each other. However, this revealed a mistake in the code that only occurs when the messages have different weights (and so was not a problem before).
+
+### [Analytical Multi-Message Verification]()
