@@ -18,3 +18,7 @@ This notebook, hosted in the multiple strategic agents folder, fixes a sign typo
 
 ### [Analytical Dual Message Single Agent Case](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/analytical_dual_message_single_agent.pdf)
 This notebook, hosted in the multiple strategic agents folder, does the above exercise with the two message one strategic agent model.
+
+## October 2021
+
+### [Symbolic Targeting Solution: first agent](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/symbolic/symbolic_target_first.pdf)
