@@ -24,3 +24,6 @@ This notebook benchmarks the multiple strategic agent model against the single s
 
 ### [Benchmarks with Split Influence](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/benchmarks_split_influence.pdf)
 This notebook revises the above notebook to correctly split 2b = 0.3 such that b = 0.15 for each strategic agent in the two agent case. The two strategic agent case has long-term lower payoff and slower convergence but uses less intensive initial messages.
+
+### [Benchmarks with Dual Message](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/benchmarks_dual_message.pdf)
+This notebook expands on the above notebook to have the single strategic agent model produce two messages at once instead of one message at once. It turned out that using one message only is more optimal than using two, except at cost extrema where they are equally optimal. The dual strategic agent case also turned out to be better than the dual message case in the single agent model, likely due to the single agent having to take on the contrary-to-socially-optimal-solution weight of two messages.
