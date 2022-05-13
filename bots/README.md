@@ -42,3 +42,7 @@ This notebook explores the following matrix, which has a cyclic structure:
 [0.99, 0, 0]
 ```
 It was concluded that oscillatory behaviour in the agent opinions arises due to the presence of this cycle, but also that the presence of stubborn agents can "dampen" the oscillations and induce convergence.
+
+## August 2021
+
+### 
