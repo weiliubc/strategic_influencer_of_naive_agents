@@ -20,4 +20,7 @@ This notebook varies the R cost term of each strategic agent's messages. It was 
 ## September 2021
 
 ### [Simple Benchmarks](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/simple_benchmarks.pdf)
-This notebook benchmarks the multiple strategic agent model against the single strategic agent model, indicating faster convergence and better payoff in the two strategic agent case when targeting one naive agent.
+This notebook benchmarks the multiple strategic agent model against the single strategic agent model. However, it is not a correct comparison because the influence used in the two strategic agent case was not a correct split of that used in the one strategic agent case.
+
+### [Benchmarks with Split Influence](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/benchmarks_split_influence.pdf)
+This notebook revises the above notebook to correctly split 2b = 0.3 such that b = 0.15 for each strategic agent in the two agent case. The two strategic agent case has long-term lower payoff and slower convergence but uses less intensive initial messages.
