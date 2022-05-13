@@ -30,4 +30,5 @@ This notebook expands on the above notebook to have the single strategic agent m
 
 At this point in time, I generated a series of graphs comparing what happened when the weights of each message in the dual message case were different from each other. However, this revealed a mistake in the code that only occurs when the messages have different weights (and so was not a problem before).
 
-### [Analytical Multi-Message Verification]()
+### [Analytical Multi-Message Verification](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/analytical_multi_message_verification.pdf)
+This notebook uses SymPy to compute the solution of the dual message model which helped prove that the previous code was incorrect.
