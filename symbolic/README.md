@@ -25,3 +25,6 @@ This notebook, hosted in the multiple strategic agents folder, does the above ex
 
 ### Symbolic Targeting Solution: [first agent](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/symbolic/symbolic_target_first.pdf) and [second agent](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/symbolic/symbolic_target_second.pdf)
 These notebooks attempt to symbolically solve scenarios where the strategic agent targets a particular naive agent. The resulting expressions were not easy to work with due to their complexity.
+
+### [Symbolic Targeting and Cost Analysis](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/symbolic/symbolic_targeting_and_cost_analysis.pdf)
+This notebook improves some of the symbolic equations from above.
