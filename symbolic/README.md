@@ -11,7 +11,7 @@ This notebook is a brief demo of the SymPy symbolic solver in Python and how it 
 This notebook is similar to the previous but focuses on one first-order condition example using the recursive equations.
 
 ### [Analytical Multi-Message Verification](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/analytical_multi_message_verification.pdf)
-This notebook, hosted in the multiple strategic agents folder, provides another symbolic example of the above using a particular set of initial parameters.
+This notebook, hosted in the multiple strategic agents folder, provides another symbolic example of the above using a particular set of initial parameters. Note that there is a sign typo that was fixed in a subsequent version.
 
 ### [Analytical Multi-Message Verification (fixed)](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/analytical_multi_message_verification_fixed.pdf)
-This notebook fixes a sign typo in the above notebook.
+This notebook fixes a sign typo in the first-order conditions at the beginning of the above notebook.
