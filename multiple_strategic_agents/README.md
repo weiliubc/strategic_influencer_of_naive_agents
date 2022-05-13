@@ -39,5 +39,8 @@ This notebook debugs the incorrect equations and fixes an indexing typo in doing
 ### [Analytical Multi-Message Verification (fixed)](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/analytical_multi_message_verification_fixed.pdf)
 This notebook fixes the sign typo of the previous version of this notebook.
 
+### [Analytical Dual Message Single Agent Case](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/analytical_dual_message_single_agent.pdf)
+This notebook verifies that an observed slight difference in the two message one agent and one message two agent cases is expected due to the different formulations.
+
 ### [Benchmarks with Dual Message (asymmetric case)](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/multiple_strategic_agents/benchmarks_dual_message_asymmetric.pdf)
 This notebook employs the fixed code to compare the two-message one-agent case to the two-agent one-message case with asymmetric weights. We see the same conclusions as the symmetric version, and that in the two strategic agent case, the agent with the smaller weight has greater payoff and smaller messages. The same smaller messages are present in the smaller channel of the one-agent case with two messages.
