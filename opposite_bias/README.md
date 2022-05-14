@@ -21,3 +21,6 @@ This then implies that cost is the factor that causes the "opinion bias" in the 
 
 ### [Addendum](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/addendum.pdf)
 This notebook checks an additional case concerning why r^1 and r^2 do not appear inversely related.
+
+## [Examples](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/examples.pdf)
+This notebook expands on the above by providing some printouts of the variables and exploring agenda-dependent cost.
