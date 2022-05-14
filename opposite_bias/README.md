@@ -27,3 +27,6 @@ This notebook expands on the above by providing some printouts of the variables 
 
 ## [Finite Horizon](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/finite_horizon.pdf)
 This notebook repeats the above with a finite horizon model instead of an infinite horizon one.
+
+## [r_1 vs r_2](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/r1_vs_r2.pdf)
+This notebook plots the message sequences against each other for various points in time. It also explains why the K matrix stays relatively constant for much of the periods in the model.
