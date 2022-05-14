@@ -24,3 +24,6 @@ This notebook checks an additional case concerning why r^1 and r^2 do not appear
 
 ## [Examples](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/examples.pdf)
 This notebook expands on the above by providing some printouts of the variables and exploring agenda-dependent cost.
+
+## [Finite Horizon](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/finite_horizon.pdf)
+This notebook repeats the above with a finite horizon model instead of an infinite horizon one.
