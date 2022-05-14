@@ -4,10 +4,10 @@ This folder contains notebooks regarding "A comparison theorem for matrix Riccat
 
 ## December 2021
 
-### [Initial Check](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/comparison_theorem/theorem1_1.html)
+### [Initial Check](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/comparison_theorem/initial_check.html)
 This notebook provides some initial checks of Theorem 1.1 on the strategic agent model; these indicated that the theorem may not help with comparative statics for epsilon-changes in the matrices. There was a typo in checking the B matrix which was fixed in a subsequent notebook.
 
-### [Further Check](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/comparison_theorem/theorem1_1B.html)
+### [Further Check](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/comparison_theorem/further_check.html)
 This notebook checks the B matrix as mentioned above, but no working results were found either.
 
 ### [Schur Complement](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/comparison_theorem/schur_complement_check.html)
