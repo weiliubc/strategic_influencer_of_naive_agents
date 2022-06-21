@@ -31,3 +31,5 @@ This notebook explores computing a lower bound on the payoff for the strategic a
 ![image](https://user-images.githubusercontent.com/30967260/174911249-be659a1d-7082-43c7-a0c0-bc2731f07d74.png)
 is compared to a simple bound using the payoff of the $r_t = 0$ no-strategy bound. The no-strategy bound was found to be stronger.
 
+### [Proposition 2 Extended](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/proposition_2_extended.html)
+This notebook explores an extension of proposition 2 showing convergence of the myopic strategy is faster than convergence of the simple strategy $r_t = 0$.
