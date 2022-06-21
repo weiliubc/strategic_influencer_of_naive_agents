@@ -25,3 +25,9 @@ These notebooks provide numerical simulations and verifications of propositions 
 
 ### [Proposition 1 Extended](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/proposition_1_variations.html)
 This notebook extends the previous simulation notebook for proposition 1 by varying the structure of the A matrix. The proposition stops working after an epsilon = 0.016 shock. Further investigation after this notebook revealed that this breakdown only occurs when the naive agents have initial opinions of different magnitudes.
+
+### [Payoff Bounds](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/payoff_bounds.html)
+This notebook explores computing a lower bound on the payoff for the strategic agent. Specifically, a bound constructed from first principles:
+![image](https://user-images.githubusercontent.com/30967260/174911249-be659a1d-7082-43c7-a0c0-bc2731f07d74.png)
+is compared to a simple bound using the payoff of the $r_t = 0$ no-strategy bound. The no-strategy bound was found to be stronger.
+
