@@ -18,3 +18,6 @@ This notebook compares targeting strategies in the short term. It also explores 
 
 ### Targeting with Cost: [Stubborn](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_with_cost_stubborn.html) and [Easygoing](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_with_cost_easygoing.html) Agents
 These two notebooks provide comparative statics on the targeting model with respect to R and delta. The basic tagreting results from before are sustained.
+
+### Myopic vs Optimal Strategy in Targeting: [Stubborn](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_myopic_vs_optimal_stubborn.html) and [Easygoing](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_myopic_vs_optimal_easygoing.html) Agents
+These notebooks compare the myopic and optimal strategies in the targeting model. The strategies become similar to each other as cost increases, but the optimal strategy is more aggressive in magnitude when cost is closer to zero.
