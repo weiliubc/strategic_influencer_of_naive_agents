@@ -15,3 +15,10 @@ This notebook, hosted in the symbolic folder, improves some of the symbolic equa
 
 ### [Short Term Analysis](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/short_term.pdf)
 This notebook compares targeting strategies in the short term. It also explores the behaviour of the individual entries of the K matrix, which appear to be decreasing with time.
+
+## January 2022
+
+### [Proposition 1](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/proposition_1.html) and [Proposition 2](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/proposition_2.html)
+These notebooks provide numerical simulations and verifications of propositions 1 and 2 of the basic model. The following additional graphs for proposition 1 were generated:
+![image](https://user-images.githubusercontent.com/30967260/174910005-65893bea-9e94-410b-8ace-69af6ad5d1eb.png)
+![image](https://user-images.githubusercontent.com/30967260/174910021-7d0dd310-2f79-4954-9bcd-a122986f4549.png)
