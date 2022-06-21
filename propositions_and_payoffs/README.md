@@ -21,6 +21,7 @@ is compared to a simple bound using the payoff of the $r_t = 0$ no-strategy boun
 This notebook explores an extension of proposition 2 showing convergence of the myopic strategy is faster than convergence of the simple strategy $r_t = 0$.
 
 At this point, a handful of additional external graphs were generated:
+
 ![image](https://user-images.githubusercontent.com/30967260/174914129-1cc29951-b725-486f-bc46-2c523a51d493.png)
 ![image](https://user-images.githubusercontent.com/30967260/174914145-6407de80-0e73-40db-b889-af6c64e0ebe0.png)
 ![image](https://user-images.githubusercontent.com/30967260/174914164-c0cb6fb7-7887-4bc1-a03a-df48280ce598.png)
