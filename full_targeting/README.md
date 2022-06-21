@@ -22,3 +22,6 @@ This notebook compares targeting strategies in the short term. It also explores 
 These notebooks provide numerical simulations and verifications of propositions 1 and 2 of the basic model. The following additional graphs for proposition 1 were generated:
 ![image](https://user-images.githubusercontent.com/30967260/174910005-65893bea-9e94-410b-8ace-69af6ad5d1eb.png)
 ![image](https://user-images.githubusercontent.com/30967260/174910021-7d0dd310-2f79-4954-9bcd-a122986f4549.png)
+
+### [Proposition 1 Extended](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/proposition_1_variations.html)
+This notebook extends the previous simulation notebook for proposition 1 by varying the structure of the A matrix. The proposition stops working after an epsilon = 0.016 shock. Further investigation after this notebook revealed that this breakdown only occurs when the naive agents have initial opinions of different magnitudes.
