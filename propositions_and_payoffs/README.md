@@ -26,3 +26,6 @@ At this point, a handful of additional external graphs were generated:
 ![image](https://user-images.githubusercontent.com/30967260/174914145-6407de80-0e73-40db-b889-af6c64e0ebe0.png)
 ![image](https://user-images.githubusercontent.com/30967260/174914164-c0cb6fb7-7887-4bc1-a03a-df48280ce598.png)
 ![image](https://user-images.githubusercontent.com/30967260/174914199-e08b135b-5274-48ee-9e15-092747e63add.png)
+
+### [Optimal Payoff Dependency](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/propositions_and_payoffs/optimal_payoff_dependency.html)
+This notebook explores the dependency of the optimal payoff on various network factors and demonstrates that, with respect to variations of other parameters, there is no dependency on the b vector.
