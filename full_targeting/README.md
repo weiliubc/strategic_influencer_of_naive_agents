@@ -15,3 +15,6 @@ This notebook, hosted in the symbolic folder, improves some of the symbolic equa
 
 ### [Short Term Analysis](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/short_term.pdf)
 This notebook compares targeting strategies in the short term. It also explores the behaviour of the individual entries of the K matrix, which appear to be decreasing with time.
+
+### Targeting with Cost: [Stubborn](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_with_cost_stubborn.html) and [Easygoing](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_with_cost_easygoing.html) Agents
+These two notebooks provide comparative statics on the targeting model with respect to $R$ and $\delta$. The basic tagreting results from before are sustained.
