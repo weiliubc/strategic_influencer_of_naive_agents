@@ -61,11 +61,11 @@ Further tests were done [here (0, 0, 20 opinions)](https://github.com/jbrightuni
 ### [Large Network Statics](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/large_network_statics.html)
 This notebook explores comparative statics with respect to x_0, delta and where the optimal target changes with a_11. Printouts are included. 
 
-### [Large Network Statics: Limiting Case of a_11](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/large_network_statics_convergence_x0.html)
+### [Large Network Statics: Limiting Case of a_11](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/larger_network_statics_x0.html)
 This notebook explores the limiting case of a_11 and adjusts x_0 a bit. It was found that targeting agent 2 is only better for a certain interval of a_11.
 
-### [Large Network Statics: Convergence](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/large_network_statics_convergence.html)
+### [Large Network Statics: Convergence](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/larger_network_statics_convergence.html)
 This notebook plots the a_11 limiting case. 
 
-### [Large Network Statics: R](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/large_network_statics_R.html)
+### [Large Network Statics: R](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/larger_network_statics_R.html)
 This notebook explores the model with R = 1. The result is similar but the cutoff for targeting agent 1 to be optimal with respect to a_11 is lower.
