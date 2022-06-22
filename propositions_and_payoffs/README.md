@@ -31,4 +31,7 @@ At this point, a handful of additional external graphs were generated:
 This notebook explores the dependency of the optimal payoff on various network factors and demonstrates that, with respect to variations of other parameters, there is no dependency on the b vector when R = 0.
 
 ### [Revision to the Above](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/propositions_and_payoffs/optimal_payoff_dependency_steady_state.html) and [Constant B Variant](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/propositions_and_payoffs/constant_b.html)
-These two notebooks expand on the previous by, firstly, obtaining the steady-state results properly and then exploring the row sums of the K_ss matrix with respect to b and a_ii - a_ij.
+These two notebooks expand on the previous by, firstly, obtaining the steady-state results properly and then exploring the row sums of the K_ss matrix with respect to b and |a_ii - a_ij| in which it was found that the row sums stay constant in |a_ii - a_ij|.
+
+### [Payoff vs B](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/propositions_and_payoffs/payoff_vs_b.html)
+This notebook continues the above experiments but goes into further detail exploring the rates of change of the individual payoff terms with respect to b. The opinion cost term was found to dominate the message cost term and thus obscure the non-monotonic effect the message cost term had.
