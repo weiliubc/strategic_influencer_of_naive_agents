@@ -9,4 +9,5 @@ This notebook provides an initial example of the model and some resulting analyt
 
 ## April 2022
 
-### Moderate Fringe: [Initial], [Details] and [Printouts for Cost]
+### Moderate Fringe: [Initial](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/core_peripheral_networks/moderate_fringe_initial.html), [Details](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/core_peripheral_networks/moderate_fringe_details.html) and [Printouts for Cost](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/core_peripheral_networks/moderate_fringe_cost.html)
+These notebooks explore the moderate fringe agent case where targeting the moderate agent is optimal instead of the extreme agents. It was found that this occurs when the extreme agents have opposing opinions, and changes when we add message cost. 
