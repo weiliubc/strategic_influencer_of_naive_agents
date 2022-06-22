@@ -35,3 +35,7 @@ This notebook provides printouts for a bigger network under the above model.
 
 ### [Zoomed In](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/zoomed_in.html)
 This notebook extensively explores the opinions and convergence rates of the above model to demonstrate how the initial opinions x_0 affect the optimality of the choice of targeted agent.
+
+### [Standalone Opinion Leader](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/standalone_opinion_leader.html)
+This notebook explores the opinion leader model with no stubborn agent. A numerical and a symbolic exercise are used to demonstrate that targeting the opinion leader instead of the opinion follower yields greater payoff. The same exercise is conducted in higher dimensions in [Standalone Opinion Leader Highdimensional](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/standalone_opinion_leader_highdimensional.html)
+
