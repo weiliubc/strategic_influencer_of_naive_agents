@@ -75,3 +75,8 @@ This notebook provides plots of the model under a highly symmetric A.
 
 ### [Uniform Network Targeting: Variations](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/highly_symmetric_targeting_2.html)
 This notebook provides does the above with variations on R and delta. It was found that short and long-term optimal targets remained the same.
+
+## April 2022
+
+### [Unified Targeting Example](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/unified_targeting_example.html)
+This notebook unifies several of the above targeting models in one place.
