@@ -4,5 +4,5 @@ This folder contains notebooks relating to the dynamic targeting model in which 
 
 ## Feburary 2022
 
-### [Dynamic Example]()
+### [Dynamic Example](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/dynamic_targeting/dynamic_examples.html)
 This notebook provides an initial exploration of the dynamic targeting model. The optimal choices each have a similar form, which is provided in the notebook.
