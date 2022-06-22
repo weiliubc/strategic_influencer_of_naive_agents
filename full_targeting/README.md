@@ -21,3 +21,11 @@ These two notebooks provide comparative statics on the targeting model with resp
 
 ### Myopic vs Optimal Strategy in Targeting: [Stubborn](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_myopic_vs_optimal_stubborn.html) and [Easygoing](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_myopic_vs_optimal_easygoing.html) Agents
 These notebooks compare the myopic and optimal strategies in the targeting model. The strategies become similar to each other as cost increases, but the optimal strategy is more aggressive in magnitude when cost is closer to zero.
+
+## February 2022
+
+### [Opinion Leader vs Stubborn Agent](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/opinion_leader_vs_stubborn.html)
+This notebook explores the concept of an opinion leader agent whom every other agent listens to. It was found that targeting the stubborn agent still performs better.
+
+### [Opinion Leader vs Stubborn Agent Extended](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/opinion_leader_vs_stubborn_extended.html)
+This notebook addresses an issue with the above where the magnitude of the self-weight of the stubborn agent in A was too high compared to that of the opinion leader. It was found that the initial opinions x_0 partly determined the optimal target.
