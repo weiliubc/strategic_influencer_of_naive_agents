@@ -43,3 +43,6 @@ This notebook explores the opinion leader model with no stubborn agent. A numeri
 
 ### [Comparative Statics](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_comparative_statics.html)
 This notebook compares the targeting model under low-delta, high-T networks with high-delta, low-T networks to see if a short-horizon is similar to a heavily-discounted long-horizon. This was found to be true.
+
+### [Equal Columns](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_equal_columns.html)
+This notebook checks a model with uniform columns instead of the opinion leader vs stubborn setup. Given the matrix, the optimal target depended on the column weight irrespective of delta. The same code was run under the original setup in [Equal Columns with Old Setup](ttps://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_equal_columns_old_A.html).
