@@ -69,3 +69,9 @@ This notebook plots the a_11 limiting case.
 
 ### [Large Network Statics: R](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/larger_network_statics_R.html)
 This notebook explores the model with R = 1. The result is similar but the cutoff for targeting agent 1 to be optimal with respect to a_11 is lower.
+
+### [Uniform Network Targeting](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/highly_symmetric_targeting.html)
+This notebook provides plots of the model under a highly symmetric A.
+
+### [Uniform Network Targeting: Variations](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/highly_symmetric_targeting_2.html)
+This notebook provides does the above with variations on R and delta. It was found that short and long-term optimal targets remained the same.
