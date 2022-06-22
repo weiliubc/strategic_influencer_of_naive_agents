@@ -39,3 +39,7 @@ This notebook extensively explores the opinions and convergence rates of the abo
 ### [Standalone Opinion Leader](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/standalone_opinion_leader.html)
 This notebook explores the opinion leader model with no stubborn agent. A numerical and a symbolic exercise are used to demonstrate that targeting the opinion leader instead of the opinion follower yields greater payoff. The same exercise is conducted in higher dimensions in [Standalone Opinion Leader Highdimensional](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/standalone_opinion_leader_highdimensional.html). Verification of a formula for the highdimensional case is in [Formula for Highdimensional](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/formula_for_highdimensional.html).
 
+## March 2022
+
+### [Comparative Statics](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_comparative_statics.html)
+This notebook compares the targeting model under low-delta, high-T networks with high-delta, low-T networks to see if a short-horizon is similar to a heavily-discounted long-horizon. This was found to be true.
