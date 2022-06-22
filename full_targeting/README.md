@@ -46,3 +46,6 @@ This notebook compares the targeting model under low-delta, high-T networks with
 
 ### [Equal Columns](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_equal_columns.html)
 This notebook checks a model with uniform columns instead of the opinion leader vs stubborn setup. Given the matrix, the optimal target depended on the column weight irrespective of delta. The same code was run under the original setup in [Equal Columns with Old Setup](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/targeting_equal_columns_old_A.html).
+
+### [Short Horizon Test](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/test_short_horizon.html)
+This notebook tests the setup under a short horizon to ensure indices are correct.
