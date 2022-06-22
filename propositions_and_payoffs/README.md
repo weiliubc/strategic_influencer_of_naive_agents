@@ -28,7 +28,7 @@ At this point, a handful of additional external graphs were generated:
 ![image](https://user-images.githubusercontent.com/30967260/174914199-e08b135b-5274-48ee-9e15-092747e63add.png)
 
 ### [Optimal Payoff Dependency](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/propositions_and_payoffs/optimal_payoff_dependency.html)
-This notebook explores the dependency of the optimal payoff on various network factors and demonstrates that, with respect to variations of other parameters, there is no dependency on the b vector.
+This notebook explores the dependency of the optimal payoff on various network factors and demonstrates that, with respect to variations of other parameters, there is no dependency on the b vector when R = 0.
 
 ### [Revision to the Above](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/propositions_and_payoffs/optimal_payoff_dependency_steady_state.html) and [Constant B Variant](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/propositions_and_payoffs/constant_b.html)
 These two notebooks expand on the previous by, firstly, obtaining the steady-state results properly and then exploring the row sums of the K_ss matrix with respect to b and a_ii - a_ij.
