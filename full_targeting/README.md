@@ -79,4 +79,4 @@ This notebook provides does the above with variations on R and delta. It was fou
 ## April 2022
 
 ### [Unified Targeting Example](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/unified_targeting_example.html)
-This notebook unifies several of the above targeting models in one place.
+This notebook unifies several of the above targeting models in one place. Some extra printouts of steady-state matrices when B = 0 are given [here](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/extra_steady_state_printouts.html).
