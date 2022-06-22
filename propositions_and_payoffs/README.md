@@ -35,3 +35,6 @@ These two notebooks expand on the previous by, firstly, obtaining the steady-sta
 
 ### [Payoff vs B](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/propositions_and_payoffs/payoff_vs_b.html)
 This notebook continues the above experiments but goes into further detail exploring the rates of change of the individual payoff terms with respect to b. The opinion cost term was found to dominate the message cost term and thus obscure the non-monotonic effect the message cost term had.
+
+### [Payoff vs B Revised](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/propositions_and_payoffs/payoff_vs_b_revised.html)
+This notebook revises the above notebook by ensuring any adjustments to the b vector do not impact |a_ii - a_ij|. It was found that the message cost term was negligible due to r_t decreasing whenever R increased.
