@@ -51,3 +51,6 @@ This notebook has an issue with finite-horizon terminal payoff; this was correct
 
 ### [Short Horizon Test](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/test_short_horizon.html)
 This notebook tests the setup under a short horizon to ensure indices are correct.
+
+### [Relevance of Delta](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/relevance_of_delta.html)
+This notebook demonstrates that the optimal target may change if delta changes.
