@@ -29,3 +29,9 @@ This notebook explores the concept of an opinion leader agent whom every other a
 
 ### [Opinion Leader vs Stubborn Agent Extended](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/opinion_leader_vs_stubborn_extended.html)
 This notebook addresses an issue with the above where the magnitude of the self-weight of the stubborn agent in A was too high compared to that of the opinion leader. It was found that the initial opinions x_0 partly determined the optimal target.
+
+### [Bigger Network](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/bigger_network.html)
+This notebook provides printouts for a bigger network under the above model.
+
+### [Zoomed In](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/zoomed_in.html)
+This notebook extensively explores the opinions and convergence rates of the above model to demonstrate how the initial opinions x_0 affect the optimality of the choice of targeted agent.
