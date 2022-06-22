@@ -57,3 +57,15 @@ This notebook demonstrates that the optimal target may change if delta changes. 
 
 Further tests were done [here (0, 0, 20 opinions)](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/steady_state_relevance_of_delta.html), [here (more payoffs vs delta)](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/steady_state_weight.html), and [here (further analysis of 0, 0, 20)](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/zero_zero_twenty_model.html), which together indicate that the initial opinions factor into the payoff in a manner independent of delta. Plots for the 0, 0, 20 case can be found [here](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/zero_zero_twenty_model_plots.html).
 ![image](https://user-images.githubusercontent.com/30967260/174924587-484a7519-cad2-40e1-a500-e5a1c08666d9.png)
+
+### [Large Network Statics](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/large_network_statics.html)
+This notebook explores comparative statics with respect to x_0, delta and where the optimal target changes with a_11. Printouts are included. 
+
+### [Large Network Statics: Limiting Case of a_11](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/large_network_statics_convergence_x0.html)
+This notebook explores the limiting case of a_11 and adjusts x_0 a bit. It was found that targeting agent 2 is only better for a certain interval of a_11.
+
+### [Large Network Statics: Convergence](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/large_network_statics_convergence.html)
+This notebook plots the a_11 limiting case. 
+
+### [Large Network Statics: R](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/full_targeting/large_network_statics_R.html)
+This notebook explores the model with R = 1. The result is similar but the cutoff for targeting agent 1 to be optimal with respect to a_11 is lower.
