@@ -25,6 +25,9 @@ This contains symbolic analysis.
 ### [Core-Peripheral Networks](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/tree/main/core_peripheral_networks)
 This contains results related to targeting in the core-peripheral model.
 
+### [Unified Model](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/tree/main/unified_model)
+This contains results related to the new unified model.
+
 ## Targeting Model
 
 ### [Full Targeting](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/tree/main/full_targeting)
