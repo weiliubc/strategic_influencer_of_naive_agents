@@ -10,3 +10,6 @@ This notebook tries the above procedure with the expression $K_j^* / \lambda_j$ 
 
 ### [Equation Test: Ratio Reciprocal](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/equation_test_ratio_2.ipynb)
 This notebook is the above notebook but with analysis on $\lambda_j / K_j^*$, the reciprocal of the above expression. The same result is observed as the previous notebook.
+
+### [Equation Test: Derivatives](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/equation_test_derivatives.ipynb)
+This notebook prints out the derivatives of the expressions created when going from the ratio approach to the direct convergence rate approach.
