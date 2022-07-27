@@ -13,3 +13,6 @@ This notebook is the above notebook but with analysis on $\lambda_j / K_j^*$, th
 
 ### [Equation Test: Derivatives](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/equation_test_derivatives.ipynb)
 This notebook prints out the derivatives of the expressions created when going from the ratio approach to the direct convergence rate approach.
+
+### [Model Cross-Comparison](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/model_cross_comparison.ipynb)
+This notebook compares the model to no-intervention and one-shot-intervention models. The unified model has higher payoff than both and converges faster than the no-intervention model (convergence speed is more ambiguous in comparison to the one-shot model but accuracy to agenda is higher in the unified model). In addition, the network with a smaller second-highest eigenvalue was found to converge faster and give higher payoff than the network with a larger second-highest eigenvalue (i.e. one with a stubborn agent).
