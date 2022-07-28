@@ -20,5 +20,5 @@ This notebook compares the model to no-intervention and one-shot-intervention mo
 ### [Model Cross-Comparison: Extra Plots](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/extra_plots.ipynb)
 This notebook implements the above notebook but presents the projected opinions and messages (whereas the above presents the unprojected opinions and messages).
 
-### [Model Cross-Comparison: Higher Cost Version](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/higher_cost.ipynb)
+### [Model Cross-Comparison: Higher Cost Version](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/higher_cost_version.ipynb)
 This notebook implements the baseline comparison with c increased to 200. Several printouts and checks relating to the opinion values in the infinite horizon model are added.
