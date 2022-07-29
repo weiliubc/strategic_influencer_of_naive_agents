@@ -22,3 +22,6 @@ This notebook implements the above notebook but presents the projected opinions 
 
 ### [Model Cross-Comparison: Higher Cost Version](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/higher_cost_version.ipynb)
 This notebook implements the baseline comparison with c increased to 200. Several printouts and checks relating to the opinion values in the infinite horizon model are added.
+
+### Convergence Speed Analysis: [Projected](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/convergence_speed_analysis.ipynb) and [Unprojected](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/convergence_speed_analysis_unprojected.ipynb) Versions
+These two notebooks provide analysis of convergence speed in the model. It was observed that opinions in balanced networks visually converge to zero faster than those in stubborn networks only with the projected opinions. A check for correctness using the analytic opinion expression in comparison to the recursive numerical approach was also created.
