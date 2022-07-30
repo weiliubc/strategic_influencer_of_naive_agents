@@ -31,3 +31,5 @@ This notebook displays the plots of projected opinions for a more stubborn netwo
 
 ### [Myopic Comparison](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/myopic_comparison.ipynb)
 This notebook compares the myopic strategy to the one-shot strategy for a small horizon. Opinions are able to get closer to the target agenda under the one-shot strategy here, but this comes at higher cost and so the payoff is worse under one-shot compared to myopic.
+
+The above notebook had a typo in that the one-shot model used the infinite-horizon solution instead of the finite-horizon solution, which is corrected [in this revised notebook](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/myopic_comparison_revised.ipynb). The same conclusions as previous still hold despite the change.
