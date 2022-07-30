@@ -25,3 +25,9 @@ This notebook implements the baseline comparison with c increased to 200. Severa
 
 ### Convergence Speed Analysis: [Projected](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/convergence_speed_analysis.ipynb) and [Unprojected](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/convergence_speed_analysis_unprojected.ipynb) Versions
 These two notebooks provide analysis of convergence speed in the model. It was observed that opinions in balanced networks visually converge to zero faster than those in stubborn networks only with the projected opinions. A check for correctness using the analytic opinion expression in comparison to the recursive numerical approach was also created.
+
+### [Convergence Speed Analysis with Higher a_11](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/convergence_speed_analysis_3.ipynb)
+This notebook displays the plots of projected opinions for a more stubborn network, which appears to continue to show faster convergence in the more balanced network case.
+
+### [Myopic Comparison](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/myopic_comparison.ipynb)
+This notebook compares the myopic strategy to the one-shot strategy for a small horizon. Opinions are able to get closer to the target agenda under the one-shot strategy here, but this comes at higher cost and so the payoff is worse under one-shot compared to myopic.
