@@ -35,4 +35,4 @@ This notebook compares the myopic strategy to the one-shot strategy for a small 
 The above notebook had a typo in that the one-shot model used the infinite-horizon solution instead of the finite-horizon solution, which is corrected [in this revised notebook](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/myopic_comparison_revised.ipynb). The same conclusions as previous still hold despite the change.
 
 ### [Small Delta Myopic Comparison](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/myopic_comparison_small_delta.ipynb)
-This notebook repeats the exercise for a longer finite horizon and a smaller value of delta. The limiting behaviour in delta is that the two models approach equality but the myopic payoff is always above the one-shot payoff.
+This notebook repeats the exercise for a longer finite horizon and a smaller value of delta. The limiting behaviour for decreasing delta is that the two models approach equality but the myopic payoff is always above the one-shot payoff.
