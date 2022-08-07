@@ -34,5 +34,10 @@ This notebook compares the myopic strategy to the one-shot strategy for a small 
 
 The above notebook had a typo in that the one-shot model used the infinite-horizon solution instead of the finite-horizon solution, which is corrected [in this revised notebook](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/myopic_comparison_revised.ipynb). The same conclusions as previous still hold despite the change.
 
+## August 2022
+
 ### [Small Delta Myopic Comparison](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/myopic_comparison_small_delta.ipynb)
 This notebook repeats the exercise for a longer finite horizon and a smaller value of delta. The limiting behaviour for decreasing delta is that the two models approach equality but the myopic payoff is always above the one-shot payoff.
+
+### [Limit with Bots](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/limit_with_bots.ipynb)
+This notebook explores an extension where a "bot" with fixed agenda/messages influences the naive agents using the same mechanics as the strategic agent in every period. In the examples so far, the naive agent opinions always converge to some point. As a baseline, the strategic agent can always do at least as good as counteracting the bot perfectly in each period, which will leave the naive agents to converge on their own (if a limit exists). The strategic agent can also do as least as good as counteracting the bot perfectly and, on top of this, adding the messages required for the naive agents to converge as if the bot did not exist.
