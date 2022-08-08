@@ -41,3 +41,6 @@ This notebook repeats the exercise for a longer finite horizon and a smaller val
 
 ### [Limit with Bots](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/limit_with_bots.ipynb)
 This notebook explores an extension where a "bot" with fixed agenda/messages influences the naive agents using the same mechanics as the strategic agent in every period. In the examples so far, the naive agent opinions always converge to some point. As a baseline, the strategic agent can always do at least as good as counteracting the bot perfectly in each period, which will leave the naive agents to converge on their own (if a limit exists). The strategic agent can also do as least as good as counteracting the bot perfectly and, on top of this, adding the messages required for the naive agents to converge as if the bot did not exist.
+
+### [Myopic vs One-Shot: Finite-Horizon Proof](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/payoff_comparison_test_finite_proof.ipynb)
+This notebook attempts to prove that the myopic strategy has strictly higher payoff than the one-shot strategy for finite-horizons of $T = 2$ and above given nonzero parameters (otherwise we have only weakly higher payoff). A proof by induction is used.
