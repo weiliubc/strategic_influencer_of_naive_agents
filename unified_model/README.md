@@ -50,3 +50,8 @@ This notebook explores treating the bot as an automated form of a naive agent. I
 
 ### [Integrated Bot Model: Examples](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_examples.ipynb)
 This notebook prints out the steady-state matrices for special case networks: highly symmetric, uniform and isolated naive agents.
+
+Some single-variable adjustments with respect to $\delta$ and $c$: 
+- [Lower delta](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_examples_lower_delta_same_c.ipynb)
+- [Higher c](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_examples_higher_c_same_delta.ipynb)
+- [Lower c](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_examples_lower_c_same_delta.ipynb)
