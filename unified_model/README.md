@@ -55,3 +55,6 @@ Some single-variable adjustments with respect to $\delta$ and $c$:
 - [Lower delta](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_examples_lower_delta_same_c.ipynb)
 - [Higher c](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_examples_higher_c_same_delta.ipynb)
 - [Lower c](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_examples_lower_c_same_delta.ipynb)
+
+### [Integrated Bot Model: Highly Symmetric Case In-Depth](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_highly_symmetric.ipynb)
+This notebook computes some numeric and symbolic verifications of closed-form solutions for variables in the highly symmetric case.
