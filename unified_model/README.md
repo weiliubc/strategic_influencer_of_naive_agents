@@ -58,3 +58,6 @@ Some single-variable adjustments with respect to $\delta$ and $c$:
 
 ### [Integrated Bot Model: Highly Symmetric Case In-Depth](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_highly_symmetric.ipynb)
 This notebook computes some numeric and symbolic verifications of closed-form solutions for variables in the highly symmetric case.
+
+### [Integrated Bot Model (Highly Symmetric Case): Comparative Statics for k2](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_highly_symmetric_k2.ipynb)
+This notebook performs comparative statics for $k_2$ and, in doing so, $k_1$. It was observed that k1/delta, k2/delta, k1/c and k2/c decrease in their respective denominator variables, whilst delta*k1 and delta*k2 increase in delta.
