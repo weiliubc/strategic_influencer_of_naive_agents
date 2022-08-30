@@ -1,0 +1,754 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{lipsum}
+\usepackage{tikz}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{amssymb} 
+\usepackage{graphicx}
+
+\usepackage{mathtools}
+\usepackage{natbib}
+\usepackage{ulem}
+\usepackage{caption}
+\newcommand*{\genbf}[1]{\ifmmode\mathbf{#1}\else\textbf{#1}\fi}
+
+\usepackage[breaklinks]{hyperref}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{amsmath} 
+\usepackage{microtype}
+\usepackage{fancyvrb}
+\usepackage{comment}
+\usepackage{titling}
+\usepackage{soul}
+\usepackage{marginnote}
+\usepackage{breqn}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+
+\newcommand{\x}{\mathbf{x}}
+\newcommand{\y}{\mathbf{y}}
+\newcommand{\be}{\mathbf{b}}
+\newcommand{\ce}{\mathbf{c}}
+\newcommand{\re}{\mathbf{r}}
+\newcommand{\w}{\mathbf{w}}
+\newcommand{\e}{\mathbf{e}}
+\newcommand{\z}{\mathbf{z}}
+\newcommand{\ve}{\mathbf{v}}
+\newcommand{\ue}{\mathbf{u}}
+\newcommand{\ctl}{\boldsymbol\chi_t^l}
+\newcommand{\ctlt}{\boldsymbol\chi_{t-1}^l}
+\newcommand{\ctlh}{\boldsymbol\chi_{t-1}^h}
+\newcommand{\gtl}{\boldsymbol\gamma_t^l}
+\newcommand{\gtlt}{\boldsymbol\gamma_{t-1}^l}
+\newcommand{\ta}{\tilde A}
+\newcommand{\tb}{\tilde B}
+\newcommand{\tq}{\tilde Q}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\half}{\frac{1}{2}}
+\newtheorem{example}{Example}
+\newtheorem{theorem}{Theorem}
+\newtheorem{assumption}{Assumption}
+\newtheorem{observation}{Observation}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{claim}{Claim}
+\newcommand{\wl}[1]{{\color{blue} #1}}
+\newcommand{\xt}[1]{{\color{purple} #1}}
+
+\renewcommand{\baselinestretch}{1.25}
+\normalem
+
+
+\usepackage{accents}
+\newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\usepackage{cancel}
+
+\begin{document}
+\section{The unified model}
+\subsection*{Model}
+Consider graph $G=(N, A)$ of a network of agents, where $N = \{1,\ldots,n\}$ is the set of nodes which represent the agents, and $A=[a_{ij}]$ is a real-valued $n \times n$ row stochastic Markov matrix. Each $a_{ij}$ represents the relation between agent $i$ and $j$, where $0\leq a_{ij}\leq 1$ and $\sum_j a_{ij}= 1$. 
+Each agent holds some initial opinion $x_0^i$. He reports his opinion once in each period and hears the opinions of all the other agents he is linked to. Let $\x_t\in \mathbb{R}^n$ denote the vector of the agents' opinions at time $t$, where $x_t^i$ is agent $i$'s opinion at time $t$.\footnote{We use boldface lowercase to denote vectors, and boldface uppercase to denote matrices. Also, we follow the convention that a vector is a column vector.} 
+
+In each period $t$, agent $i$ may listen to a strategic agent, agent $s$, from outside network $A$. Let the messages sent by the strategic agent be  $\re_t'=(r_t^1,r_t^2,\ldots, r_t^n)$. 
+That is, agent $s$ can target each agent with a different message.  \wl{We may need to consider some restricted $\re$ later as an application because some agents cannot be influenced, and illustrate how much worse off agent $s$ becomes.}
+
+The agents in the network are naive because they form and update their opinions by simple rules. In the basic model, we consider the classic DeGroot updating rule. Starting with any given vector of initial opinions $\x_0$, the naive agents' opinions evolve as 
+\begin{align}\label{lin-sys}
+\x_{t+1} = A\x_t+\re_t,
+\end{align}
+where $\x_t$ is an $n \times 1$ vector of opinions, and $\re_t$ is an $n \times 1$ vector of messages at time~$t$. 
+
+Our model is novel in that it studies dynamic intervention: the strategic agent sends messages over time to persuade the naive agents to agree with her agenda $\mathbf 0$.\footnote{This is merely a normalization because in this model, only the distance from her agenda matters in her payoff function.} Time is discrete: $t=0,\ldots,T$, $T\leq \infty$. That is, the time horizon may be finite or infinite. Agent $s$ aims to bring the opinions of naive learning agents as close to her agenda as possible, knowing that the naive agents update their opinions according to  Eq.~\eqref{lin-sys}. Her strategy is a sequence of vectors of reports $\{\re_0,\ldots,\re_{T-1}\}$, one in each period. Her stage payoff is the sum of the quadratic distance of the naive agents' opinions from her agenda, and a quadratic cost  depending on how far her report departs from her agenda. In each period, her stage payoff $$u(\x_t,\re_t)= -\x_t'\x_t-c\re_t'\re_t.$$ Intuitively, agent $s$ cares about every agent's opinion distance from her agenda equally. If she places a higher weight on each agent, it is as if the cost parameter $c$ decreases, therefore we do not need to have a separate weight on the agents. \wl{We may mention or give an example of the fixed cost $C$ model we worked out before depending on applications.}
+
+\wl{Let us start the payoff counting from $0$, so $-\x_0'\x_0$ in just so the formulas later are neater.} 
+The strategic agent chooses a sequence of messages $\re^0=\{\re_0,\ldots,\re_{T-1}\}$ to maximizes her total discounted stage payoff: 
+$$-\sum_{0}^{T-1} \ \delta^t (\x_t' \x_t+c\re_t'\re_t)-\delta^{T}\x_T'\x_T.$$ 
+Denote the resulting optimal value as $V_0(\x_0)$, and all continuation value from period $t$ onward as $V_t(\x_t)$. \wl{oh, this value is normalized, should we add a note?}
+If $T$ is finite, then at $T$, the terminal value is simply: 
+\begin{align*}
+	V_{T}(\x_T) = -\x_T'\x_T.
+\end{align*}
+For all $0\leq t<T$, by the principle of optimality, we have
+\begin{align*} 
+	V_t(\x_t) = \max_{\re_t} \left\{ -\x_t'\x_t-c\re_t'\re_t+\delta V_{t+1}(A\x_t+\re_t) \right\}.
+\end{align*}
+Therefore the continuation value at time $T-1$ is 
+\begin{align*}
+& \ V_{T-1}(\x_{T-1}) \\
+=& -\max_{\re_{T-1}}\left \{  \x_{T-1}'\x_{T-1}+c\re_{T-1}'\re_{T-1}+ \delta(A\x_{T-1}+\re_{T-1})'(A\x_{T-1}+\re_{T-1})\right \}.
+\end{align*}
+If $T$ is infinite, we can define $V_t(\x_t)$ similarly as the continuation value from $t$ onwards. We prove later that these values are bounded below and well defined. 
+
+\medskip
+
+\subsection*{Basic analysis: symmetric $A$}
+This problem can be solved by backward induction when $T$ is finite, and by solving a fixed point problem if $T$ is infinite (see the general method in  \cite{andersonmoore,bertsekas2017} among many others.)  We first present a result on symmetric $A$ for simplicity and easier exposition, and then we will provide a more general characterization and discuss the case when $A$ is not symmetric.  
+
+While the problem defined above can be solved as is, the nature of the opinion evolution means that the agents' opinions depend on each other's and all the messages of the strategic agents, which in turn depend on the agents' prevailing opinions. The high degree of interdependence complicates the analysis, and makes the results harder to interpret. We now transform the problem into one with independence among dimensions of opinions through eigendecomposition of the weighted adjacency matrix $A$.
+
+Because $A$ is symmetric, we can rewrite it as $A=UDU'$, where $UU'=I$, and $D$ is the matrix of all the eigenvalues of $A$ (including repetition).\footnote{Real symmetric matrix of dimension $n$ has $n$ independent eigenvectors (whether the eigenvalues are repeated or not), allowing for such diagonalization.}  So each column of $U$ is an eigenvector $\ue_i$ corresponding to eigenvalue $\lambda_i$ such that $A\ue_j=\lambda_j\ue_j$ for all $j=1,\ldots,n$. These eigenvectors form an orthonormal basis, that is, $||\ue_i||=1, \ue_i\cdot \ue_j=0$ for all $i \neq j$. Next, let $\tilde \x_t=U'\x_t,\tilde \re_t=U'\re_t$. Then we have:
+$$ \tilde V_{T-1}(\tilde\x_{T-1})= -\max_{\tilde\re_{T-1}}\left \{  \tilde \x_{T-1}'\tilde \x_{T-1}+c\tilde\re_{T-1}'\tilde\re_{T-1}+ \delta(D\tilde\x_{T-1}+\tilde\re_{T-1})'(D\tilde\x_{T-1}+\tilde\re_{T-1})\right \}.$$ 
+Intuitively, $\tilde x_{0,1}=\ue_1'\x_0$ is the projection of $\x_0$ on $\ue_1$, the first eigenvector of $A$. and similarly, $\tilde r_{0,k}$ is the projection of $\re_0$ on eigenvector $\ue_k$. For example, if $n=2$, because $\ue_1$ and $\ue_2$ are orthogonal, in the transformed problem, the projected opinions are located on the two axis of the new space, and thus are independent of each other.
+
+We first provide a characterization of the basic model. \wl{I put both together, feel free to reorganize any of this for correctness and better presentation. Do you feel the two parts should be together or separate? }
+
+\begin{proposition}
+\label{basic}
+Suppose $A$ is symmetric and $A=UDU'$. 
+(1) If $T$ is finite, then the strategic agent's optimal strategy is $\tilde \re_t^*=L_t\tilde\x_t = L_t \prod_{\tau=0}^{t-1} (L_\tau+D) \tilde\x_0$, in which $L_t=-(\delta K_{t+1}+cI)^{-1}\delta K_{t+1}D$ and $K_t$ is defined iteratively as $K_T= I$, and
+\begin{align}
+\label{ricattifinite}
+K_t= I+\delta c(\delta K_{t+1}+cI)^{-1}K_{t+1}D^2.\
+\end{align}
+
+
+(2) If $T=\infty$, then the optimal steady state strategy is $\tilde \re_t^*= L^*(L^*+D)^{t} \tilde\x_0$, in which $L^*=-(\delta K^*+cI)^{-1}\delta K^*D$ and $K^*$ is the unique positive definite matrix that solves
+\begin{align}
+\label{ricattiinf}
+K^*= I+\delta c(\delta K^*+cI)^{-1}K^*D^2. \
+\end{align}
+
+\end{proposition}
+
+Since the strategic agent's payoff is quadratic, her unique optimal strategy $\re_t^*$ is linear in the current opinions. From Proposition \ref{basic}, it is easy to see that $L_t$, the slope of the optimal strategy measures how hard agent $s$ pushes current opinions towards her agenda $0$. If all the projected opinions $\tilde \x_t$ are positive, the negative sign in $L_t$ means that agent $s$ sends negative messages, and vice versa. To see the dynamic effect of how the optimal strategy changes over time, we need to examine the endogenous matrix $K_t$, which summarizes how important each agent's opinion matters in the future.
+
+\begin{corollary}
+\label{valuefunction}
+Suppose $A$ is symmetric. If $T$ is finite, the strategic agent's optimal payoff starting from period $t$ is $-\tilde \x_t'K_t\tilde \x_t$. If $T=\infty$, her optimal payoff is  $-\tilde\x_t'K^*\tilde\x_t$, and all agents agree with the strategic agent's agenda in the long run. %wei: sure, just a note that this is true for all A. also, is it clear that K_t and K^* are defined above? %xu: I am fine either way -- we can add the reference for K_t and K^*
+\end{corollary} 
+
+Corollary \ref{valuefunction} shows that the strategic agent's optimal payoff can be summarized succinctly by the current opinions $\tilde\x_t$ and the endogeneous matrix $K_t$ (or $K^*$) describing the dynamic consequences. We can study the strategic agent's short term versus long term tradeoff by analyzing these two terms. But in general, while matrix $K_t$ is decreasing and positive (semi)-definite, the entries of $K_t$ do not have simple analytical forms. It is either determined iteratively from a nonlinear equation \eqref{ricattifinite} or as a solution of a fixed point problem when $T=\infty$ \eqref{ricattiinf}. When $A$ is symmetric, however, the solution of the transformed problem takes a strikingly simple form. Observe from the iterative solutions \eqref{ricattifinite} that all $K_t$ are diagonal, and thus each dimension of the optimal strategy is independent from each other and evolves according to its own rate. Because $K_t$ is diagonal, we slighly abuse notation and let $K_{t,j}$ be the $j$th diagonal entry, 
+then we have 
+$$ L_{t,j}=-\frac{\delta K_{t,j}}{\delta K_{t,j}+c}\lambda_j.$$ 
+ %xu: yes we need to clarify because it is not a standard notation %wei: clarifed and put it as a subscript now to be the same as later ones, K^{*,j} looks really weird
+%where $j$th dimension of $D$ is associated with the corresponding eigenpairs $\ue_j$ and $\lambda_j$. 
+Each $K_{t,j}$ decreases in $t$, and thus agent $s$ gradually reduces the intensity with which she pushes her agenda because the remaining time horizon decreases. \wl{not sure whether to do it here since each $K_t$ also depend on the parameters, but we need to explain the results somewhat. We can also wait later after the $K$ is solved and describe there.}. 
+Also, if $c$ is higher, $\tilde \re_t$ is smaller, that is, agent $s$ pushes less; and if $\delta$ is higher, the future is more important and thus agent $s$ pushes more. More interestingly, if $\lambda_j$ is higher, agent $s$ pushes more strongly. To see this, note that we can express any opinion $\x=w_1\ue_1+\ldots+w_n\ue_n$ for some constants $w_1,\ldots,w_n$. That is, $\x$ is a linear combination of $A$'s eigenvectors. 
+\begin{align*}
+(A\x)'A\x&=(w_1\lambda_1\ue_1+\ldots+w_n\lambda_n\ue_n)'(w_1\lambda_1\ue_1+\ldots+w_n\lambda_n\ue_n)\\
+&=w_1^2\lambda_1^2+\ldots+w_n^2\lambda_n^2. \
+\end{align*}
+This means that without intervention, the strategic agent's loss is increasing in every $\lambda_j^2$. The higher is an eigenvalue, the slower the weighted opinions converge to her agenda, and thus she has a stronger incentive to push back against dimensions with higher eigenvalues, everything else being equal.
+
+In the infinite horizon problem, we first show that the strategic agent's payoff is bounded below, and thus the strategic agent's value function is well defined. We then show that a limit $K^*$ exists, which allows us to take the limit of \eqref{ricattifinite} and obtain equation \eqref{ricattiinf}. The independence among dimensions means that we can study $K^*$ and the optimal strategy $\tilde \re_t^*=L^*\tilde \x_t$ explicitly. First, observe that $\tilde \x_t=(D-(\delta K^*+cI)^{-1}\delta K^*D)^t\tilde \x_0$.  Because each entry of the diagonal matrix $(D-(\delta K^*+cI)^{-1}\delta K^*D)$ is strictly smaller than $1$, the projected opinions converge to $\mathbf 0$ for any $\tilde \x_0$. Since $\tilde \x_t=U'\x_t$, this means that for a generic $\x_0$, all agents' opinions converge to the strategic agent's agenda as well.
+
+To gain more insight about the strategic agent's payoff, take any $j$-th diagonal entry of $K^*$,  we have 
+%xu: previously j is added to superscript, but below it is added to subscript, we should make them consistent? %wei: fixed above
+$\delta( K_j^*)^2+(c-\delta-\delta c \lambda_j^2)K_j^*-c=0$. It follows that 
+$$K_j^*=\frac{(\delta+\delta c \lambda_j^2-c)\pm\sqrt{(c-\delta-\delta c \lambda_j^2)^2+4\delta c}}{2\delta}.$$
+Since $K^* \geq I$, the diagonal entries of $K^*$ must be positive, and thus the positive root is the unique solution. Moreover, each entry $K_j^*$ increases in $\lambda_j^2$. From Corollary \ref{valuefunction}, fix $\x_0$, the larger is $K_j^*$, the more important is that dimension to the strategic agent's payoff.
+To see why the eigenvalues are key to $K_j^*$, and thus the strategic agent's payoff, we need to examine the speed of convergence of the agents' opinions. 
+$$\tilde \x_t=\left(\frac{c}{\delta K_1^*+c}\right)^t\lambda_1^t\tilde x_0^1+\ldots+\left(\frac{c}{\delta K_n^*+c}\right)^t\lambda_n^t\tilde x_0^n=M\tilde \x_0=MU'\x_0,$$ where $M$ is the diagonal matrix with the entries $(\frac{c}{\delta K_j^*+c})^t\lambda_j^t$.
+Note that $U' \x_0=(\ue_1'\x_0,\ldots,\ue_n'\x_0)'=(w_1,\ldots,w_n)'$. This is because $\ue_1'\x_0=\ue_1'(w_1\ue_1+\ldots+w_n\ue_n)=w_1$, since $\ue_i'\ue_i=1,\ue_i'\ue_j=0$. So we can rewrite the above as: \wl{First, please see whether below is correct. The classic way to explain why second eigenvalue is important is once we rewrite as the second line, the first term is the limit, and the second one (the ratio) gives how fast it gets there. }%But I am still a little confused over this interpretation.} 
+\begin{align}
+\label{convergence}
+\tilde \x_t&=w_1\left(\frac{c}{\delta K_1^*+c}\right)^t\lambda_1^t\e_1+ \ldots+ w_n\left(\frac{c}{\delta K_n^*+c}\right)^t\lambda_n^t \e_n\nonumber \\
+&=\left(\frac{c}{\delta K_1^*+c}\right)^t\lambda_1^t\left(w_1\e_1+w_2\left(\frac{\delta K_1^*+c}{\delta K_2^*+c}\right)^t\left(\frac{\lambda_2}{\lambda_1}\right)^t\e_2+\ldots+w_n\left(\frac{\delta K_1^*+c}{\delta K_n^*+c}\right)^t\left(\frac{\lambda_n}{\lambda_1}\right)^t\e_n\right).\
+\end{align} 
+where $\e_j$ is the unit vector with $j$th entry being $1$ \wl{once and for all, let us fix notations for the unit vectors and for the vector that is all 1}. Clearly, since $\lambda_1=1$, the growth rate associated with the first eigenvalue is a constant smaller than $1$ (only depend on $\delta,c$) independent of $A$. If $\lambda_j$ is close to $0$, the term associated with it is close to $0$, and thus does not matter in the speed of convergence. The convergence of $\tilde \x_t$ depends on the ratio $\frac{c\lambda_j}{\delta K_j^*+c}$, which is an increasing function of $\lambda_j$. The larger is this ratio, the slower is the convergence in that dimension, and thus the slower is the overall convergence, making the strategic agent worse off. 
+%xu: below should be all hided then? since it seems to talk about the non-monotonicity of  $K/\lambda$, or maybe some of them are still useful? (just want to check with you first) wei: I like the two effects, but let us shorten it.
+We can show that while the growth rate increases in $\lambda_j$ in net, there are two countervailing effect. As $\lambda_j$ increases, it is more important to target in this dimension because the growth rate without intervention. But $K_j^*$ also increases in $\lambda_j$, that is, this dimension is more persistent so it becomes more costly to change opinions. In particular, we can show that for small $c$ or $\delta$, $K_j^*$ increase slowly in $\lambda_j$, that is, dynamic intervention is not too costly even for the dimensions that converge slowly. But for large $\delta$ or $c$, $K_j^*$ may increase fast in $\lambda_j$. That is, the dynamic intervention becomes very costly to intervene in the more persistent dimensions.
+
+
+
+\medskip
+\noindent \textbf{Proof of Proposition \ref{basic}:} We start with the case of finite $T$. Recall from the text that $\tilde V_{T}(\x_T) = -\tilde\x_T'\tilde\x_T$, and 
+$$ \tilde V_{T-1}(\tilde\x_{T-1})= \max_{\tilde\re_{T-1}}-\left \{  \tilde \x_{T-1}'\tilde \x_{T-1}+c\tilde\re_{T-1}'\tilde\re_{T-1}+ \delta(D\tilde\x_{T-1}+\tilde\re_{T-1})'(D\tilde\x_{T-1}+\tilde\re_{T-1})\right \}.$$ 
+Differentiate with respect to $\tilde\re_{T-1}$ and set the derivative to zero we obtain 
+\begin{align*}
+	-(\delta+c)\tilde \re_{T-1} =  \delta D\tilde\x_{T-1}.
+\end{align*}
+Thus the optimal $\tilde\re_{T-1}$ can be uniquely computed as
+\begin{align*}
+	\tilde\re_{T-1}^* = -\frac{\delta}{\delta+c}D\tilde \x_{T-1}.
+\end{align*}
+%use later \wl{cf: if $A$ not symmetric, this is $-(\delta+c)\tilde \re_{T-1} =  \delta V'US\tilde\x_{T-1}$. }
+Since the objective function is concave, and the opinion evolution is linear, the FOC suffices. Substitute the above into the value function at time $T-1$, we have
+\begin{align*}
+	\tilde V_{T-1}(\tilde\x_{T-1}) =&- \tilde\x_{T-1}'\tilde \x_{T-1}-c\tilde \re_{T-1}'\tilde \re_{T-1}-\delta \tilde \x_T'\x_T\\
+	=&-  \tilde\x_{T-1}'\left(I+c\frac{\delta^2}{(\delta+c)^2}D^2+\delta\frac{c^2}{(\delta+c)^2}D^2 \right)\tilde\x_{T-1}. 
+\end{align*}
+This can also be written as
+\begin{align*}
+	& \tilde V_{T-1}(\tilde\x_{T-1})  = -  \tilde\x_{T-1}' K_{T-1} \tilde\x_{T-1}, \ \mbox{where} \ K_{T-1} = I+\frac{\delta c}{\delta+c}D^2.
+\end{align*}
+Note that the value function is quadratic in $K_{T-1}$, which summarizes the future consequences given optimal message $\re_{T-1}$. Clearly, $K_{T-1}$ is diagonal, with each $j$th entry increasing in $c$ and $\delta$, and in the eigenvalue $\lambda_j^2$. 
+%\wl{cf: more generally, $K_{T-1} = I+\frac{\delta c}{\delta+c}S^2$.}
+
+In a similar way, we can show the optimal $$\tilde \re_{T-2}=-(\delta K_{T-1}+cI)^{-1}\delta K_{T-1}D\tilde\x_{T-2}.$$  Since every matrix above is diagonal, we can express 
+\begin{align*}
+\tilde V_{T-2}(\tilde\x_{T-2})&=-\tilde \x_{T-2}'\tilde \x_{T-2}-c\tilde \re_{T-2}'\tilde \re_{T-2}+\delta \tilde V_{T-1}\\
+&=-\tilde \x_{T-2}'\tilde \x_{T-2}-c\tilde \re_{T-2}'\tilde \re_{T-2}-\delta \tilde \x_{T-1}'K_{T-1}\tilde \x_{T-1}\\
+&=-\tilde \x_{T-2}'\left(I+c((\delta K_{T-1}+cI)^{-1}\delta K_{T-1})^2D^2+
+\delta(I-(\delta K_{T-1}+cI)^{-1}\delta K_{T-1})^2 K_{T-1}D^2\right)\tilde\x_{T-2}.\
+\end{align*}
+Simplify and we have:
+$$K_{T-2}=I+\delta c(\delta K_{T-1}+cI)^{-1}K_{T-1}D^2.$$ 
+%\wl{The general case breaks here, $K_{T-2}$ is no longer diagonal because unlike $D$,  $V'US$ is not diagonal.}
+Iteratively, we have:
+$$K_t=I+\delta c(\delta K_{t+1}+cI)^{-1}K_{t+1}D^2.$$
+By induction, we can show $K_t$ is decreasing and positive definite. Every $K_t$ is diagonal and a simple function of the parameters. For example, the $j$th entry of $K_t$ is:
+$$K_t^j=1+\frac{\delta cK_{t+1}^j\lambda_j^2}{\delta K_{t+1}^j+c}.$$
+Also, it is easy to prove that $K$ is symmetric and positive definite. Note the one implication is that each entry of $K_t$ is positive. 
+
+
+We now extend our analysis to $T=\infty$. First we show that the value function in this problem is well defined for any $A$ (not just symmetric ones). To do so, we need to consider the value function when $T$ is finite and let $T$ go to infinity, and thus we add $T$ as a dependent variable to the value function. Let $V_t(\x_t,T)$ be the value function at time $t$ for time horizon $T$, and let $K_t(T)$ be the Ricatti matrix at time $t$ for time horizon $T$, which exists for any $t$ and $T$. 
+%xu: the notation here is a little confusing, what is the difference between V_t(x_t), V_t(x_t, T) and \tilde V_t(\tilde x_t)? Also K_t is defined for \tilde x_t above, but for x_t here
+%wei: it is probably not clear, please suggest how best you think it would work. Here we need to explicitly study V as a function of T, and thus K(T), and later will let T vary. I mentioned above that this is general, so not limited to symmetric A case, we could move it to the later part. But just the tradeoff between less notation in the text and here we need more notation...
+%xu: I see. I think it is fine to use V_t(x_t, T) (I added a sentence above to clarify), but it does not seem right to use K for both V and \tilde V. We can either (1) use K for V and \tilde K for \tilde V; or (2) use K for \tilde V and use something else (like \hat K?) for V. (1) would make main text a little messy but the notations seem to be consistent. Which one do you prefer? 
+\wl{Agree, I am thinking about fixing it all together in the general A proof, and this will follow here as a special case. Also debating whether to show the general A without decomposition, we only need it to make one point, and can decompose at that point then. Let me know when you see it and decide.} 
+ It is easy to see that for any $\x_t$, $t$ and $T$, $$V_t(\x_t,T)=-\x_t'K_t(T)\x_t\geq -\x_t'A^{2t}(I-\delta A^{2})^{-1}\x_t>-\infty,$$ where the second to last inequality holds because optimal strategy does better than  the no intervention payoff which is itself bounded. Therefore the entries of $K_t(T)$ are bounded. To see this, note that $K_t(T)$ is positive definite. If one of $K_t(T)$'s entries is unbounded, then one of the diagonal entries has to be unbounded so that $K_t(T)$ remains positive definite. But then there exists some $\x_t$ such that $V_t(\x_t,T)$ is unbounded, which is a contradiction. 
+Next, suppose that $\x^t=\{\x_t,\ldots,\x_T\}$ are the opinions under the optimal $K_t(T)$ and $\hat\x^t=\{\hat\x_t,\ldots,\hat \x_{T+1}\}$ are the opinions under the optimal $K_t(T+1)$. Then for any $\x_t$ and $T$, and $\x_t=\hat \x_t$,
+$$V_t(\x_t,T)=-\sum_{\tau=t}^T \delta^{\tau-t}\x_\tau'\x_\tau\geq -\sum_{\tau=t}^T  \delta^{\tau-t} \hat\x_{\tau}'\hat\x_{\tau}-\delta^{T+1-t} \hat\x_{T+1}'\hat\x_{T+1}=V_t(\x_t,T+1).$$ The inequality holds because $V_t(\x_t,T)$ is optimal for the $T$ period problem. Therefore $V_t(\x_t,T)\geq V_t(\x_t,T+1)$. Similarly, $V_t(\x_t,T)\geq V_t( \x_t,T')$ for any $T'>T$. Therefore $V_t(\x_t,T)$ is decreasing in $T$.
+Since for any $\x_t$, the function $V_t(\x_t,T)=-\x_t'K_t(T)\x_t$ decreases in $T$ and $K_t(T)$ is bounded, $\lim_{T \to \infty} K_t(T)=K$ exists because a monotonically decreasing and bounded function has a limit. %here the inf is the limit
+
+
+
+
+Since the limit exists, we can take the limit of equation \eqref{ricattifinite} by letting $T \to \infty$ on both sides: $$K^*=I+\delta c(\delta K^*+cI)^{-1}K^*D^2.$$ Moreover, using the above expression for optimal message $\tilde\re^*_t=L\tilde \x_t$, we can rewrite the projected opinions as $$\tilde \x_t=((I-(\delta K^*+cI)^{-1}\delta K^*)D)^t\tilde \x_0.$$ Since the matrix is diagonal, the growth rate of dimension $j$  is just  $$\frac{c\lambda_j}{\delta K^*_j+c}<1,$$ and thus $\lim_{T\to \infty}\tilde  \x_t =\mathbf 0$. Since $\tilde \x_t=U'\x_t$ for all $\x_t$, this means that $\x_t=0$ for any generic $\tilde \x_0$. Finally, the value function is $\tilde V(\tilde \x_0)=-\tilde \x_0K^*\tilde \x_0$. $\|$
+
+
+\subsection*{Comparative statics with respect to parameters and $A$}
+\wl{We may put this after the general model, because we may want to talk about some c.s.concerning non symmetric $A$ but has simple $K$.} 
+A natural question is on how the strategic agent is affected when the parameters of the model change. For this section, we use infinite horizon model because the strategy is simpler, and it is a good approximation for the finite model as long as $T$ is not too small.
+\begin{lemma}
+\label{simplecs}
+Suppose $A$ is symmetric and $T\in \mathbb{N}^+\cup \{\infty\}$. The strategic agent's optimal message $r^*_t$ increases in $c$ and decreases in $\delta$, and her optimal payoff $\tilde V_0(\tilde \x_0)$ decreases in $c$ and $\delta$. Moreover, $\tilde V_0(\tilde \x_0)$ decreases in each $|\tilde x_{0,k}|$ and eigenvalue $\lambda_j$. \wl{the last line maybe belong to the next result? since it is primarily about what happens after eigenvalues change.}
+\end{lemma}
+\smallskip
+
+This lemma considers how the strategic agent's optimal message and her payoff change with the parameters of the model. First, suppose that $T$ is finite. Recall from above that the strategic agent's optimal strategy in each period $L_t$ is a diagonal matrix with diagonal entry $j$:
+$$ L_{t,j}=-\frac{\delta K_{t,j}}{\delta K_{t,j}+c}\lambda_j,$$ where $K_{t,j}$ is endogenous as given by \eqref{ricattifinite}.  Let us consider the intensity of her intervention, as measured by the absolute value $|L_{t,j}|$. Clearly, the intensity increases in $\delta$ and $K_{t,j}$ and decreases in $c$. Because $K_{t,j}$ also depend on $\delta$ and $c$, we need to consider the total effect.  We now show by induction that $K_{t,j}$ increases in $c$ and $\delta$, and $K_{t,j}/c$ decreases in $c$. First, the claim is true for $K_{T-1}=I+\frac{\delta c}{\delta+c}D^2$. Next, suppose it is true for all $K_{t+1,j}$. We know from the proof of Proposition \ref{basic} that 
+$$K_{t,j}=1+\frac{\delta cK_{t+1,j}}{\delta K_{t+1,j}+c}\lambda_j^2.$$ 
+Because $K_{t+1,j}$ increases in $\delta$, so $K_{t,j}$ increases in $\delta$. Next, since $K_{t+1,j}/c$ decreases in $c$, it is easy to see that $K_t^j$ increases in $c$ and $K_t^j/c$ decreases in $c$. This shows the claim is true for all $t=0, \ldots, T-1$.
+Thus as $\delta$ increases, $|L_{t,j}|$ increases: the strategic agent pushes stronger against the current opinions because the future losses matter more. As $c$ increases, however, both the numerator and denominator of $|L_{t,j}|$ increase. But since  $K_{t,j}/c$ decreases in $c$, the intensity decreases in $c$. That is, higher cost makes the strategic agent intervene less. Moreover, since $K_{t,j}$ decreases in time, she intervenes less in each period. 
+
+The case when $T=\infty$ is similar. We can use the solution for $K^*_j$ to show that $K_j^*/c$ also decreases in $c$, and clearly $K^*_j$ increases in $\delta$ and $c$ (see below). The only difference is that the intensity of intervention is unchanging over time since $K^*$ is not changing. 
+
+
+Next, since the value function is continuous, we know from the Envelope Theorem that for any $\tilde \x_t$, the strategic agent is worse off as the cost of intervention $c$ increases, or as $\delta$ increases since the future losses matter more. This directly implies that  $K_0$ (and $K^*$ when $T=\infty$) increases in $c$ and $\delta$ as well since the value is quadratic in $K_0$ (respectively $K^*$).  Because $K_t$ (and $K^*$) is diagonal, it is easy to see if the projected opinion becomes farther away from $0$, and thus the strategic agent is worse off. Also, if the eigenvalue becomes larger (in absolute value), the strategic agent is worse off because convergence takes longer without intervention, and thus she has to push harder to persuade the agents. 
+
+\wl{we should think about interesting issues to show how useful our model is, below is just some attempt}.
+
+The network $A$ influences the strategic agent directly because it determines how strongly agents rely on the opinions within the network. From the lemma above, we can see that if all the eigenvalues ($\lambda_j^2)$ increase, the strategic agent is worse off. Since $A$ is a Markov matrix, the set of eigenvalues typically changes when one entry changes, and thus we need to study the special cases when the perturbed $A$ and the $A$ matrix are similar, that is, they share the same orthonormal basis $U$ and $U'$. \wl{need work.}
+
+
+
+%xu: good question, do we think case (1) and (2) are the opposite of each other? That is, in case 2, if epsilon is negative, it is agents attaching less weight to themselves, just like case (1)
+%wei: something to that, we should check for proof of 1, but one small difference between 1 and 2 is that for 1, it is more general. P is a prob. vector, so each entry of the perturbed A can be bigger or smaller, so it is truly random in that sense. I don't know how best to interpret it, can you explain it better after the result?
+\wl{just realized there is a small issue in proof of part 2, please see below.}
+%xu: change the first sentence as below, see if you like it. (same to the previous lemma). wei: looks good.
+\begin{lemma}
+Suppose $A$ is symmetric and $T\in \mathbb{N}^+\cup \{\infty\}$.  (1) Consider the following perturbation: $A(\epsilon)=(1-\epsilon)A+\epsilon \ue_1\mathbf p$, where $\mathbf p$ is a probability vector, then the set of eigenvalues of $A(\epsilon)$ is $(1,(1-\epsilon)\lambda_2,\ldots,(1-\epsilon)\lambda_n)$. The strategic agent is better off if $	\epsilon$ is small. 
+
+\wl{new statement, revised} %wei: see below the proof
+(2) Suppose that $A$ is positive semidefinite. Then consider another symmetric positive definite Markov matrix $P$ such that $\lambda_n^P$ is sufficiently high: $\lambda_n^p> \lambda_2^A$. Then the set of eigenvalues of  $A(\epsilon)=(1-\epsilon)A+\epsilon P$ is greater than that of $A(0)$ elementwise. Hence $K_t(\epsilon)$ and $K^*(\epsilon)$ increase in $\epsilon$ and the strategic agent is worse off.
+
+%wei: this is incorrect, because we must have A itself be positive semi definite.
+%(2) Suppose all agents attach more weight to their own opinions,  $A(\epsilon)=(1-\epsilon)A+\epsilon I$, then $K_t(\epsilon)$ and $K^*(\epsilon)$ increase in $\epsilon$ and thus the strategic agent is worse off if $\epsilon$ is small.
+\end{lemma}
+
+The first part is due to the result that a rank one matrix perturbation is similar to the original matrix. Specifically, if each row of $A$ is subject to the same amount of noise such that the scaled disturbed matrix is still a Markov matrix, all the eigenvalues (except for $\lambda_1$) decreases. Intuitively, such a perturbation tends to make the entries of $A(\epsilon)$ more equal, making convergence faster. The second part shows the opposite effect: if all the agents rely more on their own opinions, the strategic agent is worse off because the initial opinions are more persistent, and thus it costs more for the strategic agent to change it. Intuitively, it is easier to persuade the agents if entries of $A$ are more equal. To fix ideas, let us start with all the entries of $A$ being equal. Since all the naive agents listen to each other in the same way, they can be treated as one. In this case, the strategic agent can persuade the agents in one period (or a few periods if the cost of persuasion is high). %xu: is this true? even if c is very small, it seems the opinions gradually converge to zero rather than being zero in the second period. %wei: we don't need the next line, but here is what I was trying to say. But we can move it after the example of highly symmetric network too.
+To see this, take $T=\infty$ for example, from the solution of $K^*$, we can see that $K_j^*=1$ for all $j$ if $c\to 0$ and $L_{0,j}=-\lambda_j$. This means that $\tilde \x_1=(D+L^*) \tilde \x_0=\mathbf 0$. So in the limit, agent $s$ achieves her agenda at $t=1$, and she can do so quickly if $c$ is small.
+We know from part (2) that all $A_{ii}$ increases at the expense of $A_{ij}$ makes the agents more stubborn and harder to convince. Similarly, if all $A_{ii}$ becomes small and $A_{ij}$ large, then the strategic agent is also worse off because the agents' opinions fluctuate a lot. To see this, suppose there are only two naive agents with $a_{ii}=0,a_{ij}=1$, it is clear that  they trade initial opinions back and forth perpetually without intervention. Even with the strategic agent, they still trade opinions initially and it takes a longer time for the strategic agent to dampen the opinion fluctuations. Intuitively, easy-going agents change their minds easily which also hurts the strategic agent.
+
+
+\noindent \textbf{Proof:} part (1) follows from Theorem 5.1. of ``Deeper Inside PageRank'', by  Amy N. Langville and Carl D. Meyer, Internet Mathematics Vol. 1, No. 3: 335-380. The proof proceeds by showing that $A(\epsilon)$ is similar to $A$ with the specified eigenvalues. 
+
+For part (2), recall that $A=UDU'$. \wl{not a proof, just an explanation for a special case} Then we know that $A(\epsilon)=U[(1-\epsilon)D+\epsilon I)]U'$, that is, the eigenvalue matrix of $A(\epsilon)$ increases in $\epsilon$. While some of the eigenvalues may be negative, the eigenvalues are the roots of the characteristic polynomial of $A$, and are continuous for small changes in the entries of $A$. Thus if $\lambda_j<0$, $|\lambda_j|$ of $A(\epsilon)$ decreases, but that means $K_j^*$ decreases. So we really need all eigenvalues of $A$ to be non-negatve for this to work: if  so, every $K_j$ increases, strategic agent is worse off. If it has negative eigenvalues, it doesn't. Perhaps there are other ways. To guarantee they are all positive, we need diagonally dominant matrix, I don't know other handy sufficient conditions.
+
+Proof of the new statement: \wl{this is revised proof}. We want the absolute value of each eigenvalue of $A(\epsilon)$ to be larger than that of $A(0)$: $|\lambda_j^A(\epsilon)\geq \lambda_j^A(0)| $ with the ineqality being strict for some $j$ for $K^*(\epsilon)>K^*(0)$ (same for finite $T$) because each element $K_j^*$ strictly increases in $|\lambda_j|$. For this, the first condition we need (see above) is all the eigenvalues of $A$ is non-negative, and thus $A$ must be positive semidefinite itself. Next, what kind of perturbation can guarantee every eigenvalue increases? We know $P$ is positive definite and thus all eigenvalues are positive. By Weyl's inequality, let $M=A(\epsilon)$,  we know since $A(\epsilon),P$ are both symmetric, for all $i$ 
+$$(1-\epsilon)\lambda_i^A+\epsilon\lambda_n^P\leq \lambda_i^M\leq (1-\epsilon)\lambda_i^A+\epsilon\lambda_1^P.$$ 
+Thus if $\lambda_n^P> \lambda_2^A$, or the smallest eigenvalue of $P$ to be large, $\lambda_i^M>\lambda_i^A$ for all $i>2$. Since each $|\lambda_j|$ for $j>1$ increases, $K^*$ increases and the strategic agent is worse off. $\|$
+
+%Below is to explain you may wonder whether such a P exists, so I gave one sufficient condition that I know that shows such P exists, so we are not characterizing an empty set. 
+One may wonder whether such a $P$ exists. By Gershgorin Disk Theorem: we can always find $P_{ii}$ so much larger than the sum of $P_{ij}$ that the eigenvalue $\lambda_n^P$ is large enough. 
+
+
+
+******existing comments hided *****
+\begin{comment}
+let $M=A(\epsilon)$, applying Weyl's inequality, we know since $A(\epsilon),P$ are both symmetric, for all $i,n$ 
+$$(1-\epsilon)\lambda_i^A+\epsilon\lambda_n^P\leq \lambda_i^M\leq (1-\epsilon)\lambda_i^A+\epsilon\lambda_1^P.$$ Now, since $P$ is positive definite, all $\lambda_i^P>0$. Moreover, by our assumption, $\lambda_i^P>\lambda_i^A$ for all $i>1$, thus we know from the above inequality that $\lambda_i^M>\lambda_i^A$. %xu: sorry I am slow, how we get "$\lambda_i^M>\lambda_i^A$"? 
+
+%wei: good point, i am trying to find a weakest condition, but did so in a rush. The easiest condition to assume is that $\lambda_n^P$, the smallest eigenvalue of P is sufficiently large. I was trying to use the more general version to improve on it, but didnt' work, 
+%Let $M=N+R$, $\mu,\nu\rho$ are the respective eigenvalues of the three matrices, here like ours, $\nu_1$ is the largest, and so on.  Then the general Weyl's inequality is
+%$$\nu_{j}+\rho_{k}\leq \mu_{i}\leq \nu_{r}+\rho_{s},\quad j+k-n\geq i\geq r+s-1.$$
+
+%Below is to explain you may wonder whether such a P exists, so I gave one sufficient condition that I know that shows such P exists, so we are not characterizing an empty set.
+Now, $P$ is not hard to construct. Basically we use the Gershgorin Disk Theorem: we can always find $P_{ii}$ so much larger than the sum of $P_{ij}$ that the eigenvalue $\lambda_i^P$ is sufficiently large. Basically, this is a generalization of the above intuitive statement. Since $P$ does not have to be $I$, it is a generalization. \wl{thoughts?}
+%xu: just to clarify, from the new statement, it feels that any P which satisfies the condition $\lambda_j^P\geq \lambda_j^A$ could work, but in the proof, it seems P needs to be carefully constructed. So is the statement for "any P" or "there exists some P"? The former is definitely more general, while the latter is not -- it is better to use I if it is the latter since I is simpler. 
+%wei: see above, this is just a sufficient condition for such a pd and symmetric P to exist. There may be other sufficient conditons.  The I version was not correct unless A itself satisifes all eigenvalues are positive (see the paragraph after the original proof). So for the I version to work, we need A itself to be positive semidefinite, it is not free.
+%xu: I thought I must satisfies the condition on P since all I's eigenvalues are 1. 
+%wei: yes, I does. The mistake in the original statement was that symmetric A is not enough. We need positive semidefinite A. for the perturbation, I is fine, but this condition includes more matrices. for example, if A's second eigenvalue is low, then many P can satisfy it.
+
+\end{comment}
+
+\begin{corollary}
+\label{optimalcs}
+Suppose that $A$ is highly symmetric in that all the diagonal entries of $A$ are identical, and all the off-diagonal entries are identical. Suppose that the agents attach weight $b$ to the strategic agent's message: $\x_{t+1}=A\x_t+b\re_t$, $b>0$.
+\begin{itemize}
+\item the strategic agent's payoff $V_0(\x_0)$ decreases in $|a_{ii}-a_{ij}|$.
+\item the strategic agent's payoff increases in $b$.
+\end{itemize}
+\end{corollary}
+
+ 
+\subsection*{Comparison with leading forms of interventions}
+
+The existing literature often focuses on one-shot intervention, and the network literature often uses myopic strategy in dynamic settings (cite), we now compre the optimal dynamic intervention with other leading forms of intervention. Here no intervention is the benchmark. One-shot intervention means that the strategic agent can send only one message $\re_0$ at the beginning, and the network opinions evolve according to $A$ afterwards. Myopic intervention means the strategic agent only maximizes her next period's payoff, instead of the total discounted payoff. We still focus on symmetric $A$ case for ease of comparison. The goal is to understand how the strategic agent's messages differ, and her payoff comparisons under different interventions. For simplicity, we focus on the infinite horizon case, which is typically a good approximation for the finite $T$ case.\footnote{Because the comparisons hold for all $\delta$, $c$ and $\tilde \x_0$, we can think of a finite horizon case as when $\delta$ is low and the future payoff does not matter much. The results in this section should still hold qualitatively.}
+
+%wei: redid the section to compare all these in one result
+First, the benchmark no intervention case has a simple solution. As discussed above, $\tilde\x_0=w_1\ue_1+\ldots+w_n\ue_n$, and $\tilde \x_t=D^t\tilde\x_0$. Thus her total discounted payoff is simply $$-\tilde\x_0(I-\delta D^2)^{-1}\tilde\x_0.$$ Moreover, in the no intervention case, 
+ $$\x_t=w_1\lambda_1^t\ue_1+\ldots+w_n\lambda^t_n\ue_n.$$ Therefore in the long run, $\x_t$ converges to $\ue_1'\x_0\ue_1$. Since $\ue_1$ is equally weighted, the consensus is the equally weighted average of the initial opinions.  The convergence speed to consensus is determined by $\lambda_2$: the higher is $\lambda_2$, the slower is the convergence and the worse is the strategic agent's payoff. 
+
+In one-shot intervention, agent $s$ cares about her total discounted payoff, net of the cost of changing the agents' initial opinions. That is, for fixed $\x_0$, she chooses $\re_0$ to maximize \wl{Let us unify stage payoff notation, earlier I used small $u$, but then we have a vector $\ue$...}:
+%xu: do we plan to focus on T=\infty? If not, we may want to change below from \infty to T (but many discussion below are about T=\infty, so we need to be careful and clear)
+%wei: I am not sure yet, while T finite may be similar, haven't checked whether everything works. We can say we focus on infinite case for simplicity, but later check whether finite case works.
+$$\Pi (\re_0)=-\sum_0^\infty \delta^t \x_t'\x_t-c\re_0'\re_0,$$
+where $\x_1=A\x_0+\re_0$, and $\x_t=A\x_{t-1}$ for all $t>1$.
+We can transform the problem in a similar way by considering $\tilde \x_t=U'\x_t$ and so on. Then for $\tilde \x_1=D\tilde \x_0+\tilde\re_0$, agent $s$ chooses $\tilde \re_0$ to maximize
+\begin{align*}
+-\tilde \x_0'\tilde \x_0-c\tilde\re_0'\tilde\re_0-\delta \tilde \x_1'\tilde \x_1-\ldots-\delta^t\tilde \x_1'D^{2(t-1)}\tilde \x_1.\
+\end{align*}
+Observe that once $\tilde \x_1$ is given, the opinions evolve without any further intervention. Therefore all strategic agent can do is to change $\tilde \x_1$ by  choosing $\tilde \re_0$. Differentiate with respect to $\tilde\re_0$, and the first order condition is $ -c\tilde\re_0-\delta(I+\delta D^2+\delta^2 D^4+...)\tilde \x_1=0.$ 
+Since $A$ is Markov and thus the spectrum is between $0$ and $1$, for all $\delta<1$, $I-\delta D^2$ is invertible. We can rewrite the FOC as:
+$$ c\tilde\re_0=-\delta(I-\delta D^2)^{-1}\tilde \x_1.$$
+The lhs is the marginal cost of choosing $\re_0$ and the rhs is the long term benefit of changing $\tilde \x_1$. Substitute in $\tilde \x_1=D\tilde \x_0+\tilde\re_0$, and we have:
+$$\tilde \re_0=-(cI+\delta(I-\delta D^2)^{-1})^{-1}\delta(I-\delta D^2)^{-1}D\tilde 
+\x_0.$$ Or, for dimension $j$,
+$$\tilde r_{0,j}=-\frac{\delta \lambda_j}{\delta+c(1-\delta\lambda_j^2)}\tilde x_{0,j}.$$
+
+Myopic intervention means that in each period, the strategic agent chooses $\tilde \re_t$ to maximize her payoff in the next period:
+$$\max_{\tilde \re_t} -c\tilde\re_t'\tilde \re_t-\tilde\x_{t+1}'\tilde\x_{t+1},$$ where $\tilde \x_{t+1}=D\tilde \x_t+\tilde\re_t$. Clearly, the optimal message is $\tilde \re_t^m=-\frac{\delta}{\delta+c}D\tilde \x_t$. We are now ready to compare these forms of intervention.
+
+
+Let $V^*$ be the payoff from dynamic intervention, $V^{os}$ for one shot, $V^m$ for myopic, and $V^\emptyset$ for no invention. All others follow the same superscript convention\wl{this ok? can fix later...}
+\begin{proposition}
+\label{compare}
+Suppose that $T=\infty$ and $A$ is symmetric. Then all interventions generate the same payoff when $\delta=0$, $c=0$ or $c=\infty$. For $\delta \in (0,1)$ and $c\in(0,\infty)$, for fixed $\tilde \x_0$:
+
+1) the optimal payoff ranking: $V^*>V^m>V^{os}>V^\emptyset.$
+
+2) the initial message ranking: for all $j$, $|\tilde r_{0,j}^{os}|\geq |\tilde  r_{0,j}^*|\geq |\tilde r_{0,j}^m|$, and the inequalities are strict if $\lambda_j \neq 0$.
+
+3) convergence speed ranking: convergence is fastest under dynamic intervention, then myopic intervention, one-shot and no intervention converge at the same rate.
+\end{proposition}
+
+Active interventions behave similarly in several ways. To begin with, if $c=0$, all intervention lead to $\tilde \re_0=-D\tilde\x_0$, and thus all interventions achieve the strategic agent's agenda after the initial message. In contrast, at $c=\infty$, no intervention occurs at all: the strategic agent lets the opinions evolve by themselves. Thus at both extremes, all interventions lead to the same payoff. Clearly, there is no intervention when $\delta=0$ since future payoff does not matter. All interventions are similar in the sense that the strategic agent will not spend money on unimportant dimensions: if $\lambda_j=0$, all inverventions involve zero messages in this dimension. This is driven by the underlying network $A$. Recall that $$A=\sum_{j=1}^n\lambda_j\ue_j\ue_j'.$$  If $\lambda_j=0$ is small, this dimension explains little in terms of the variance in the network $A$, and thus it  does not matter to the long term payoff. Another way to think about it is in the new coordinate system, this dimension is already at $0$, and thus little invention is needed. 
+
+Active interventions behave differently in general. To begin with, the intensity of messages differ. Consider the initial message: one-shot intervention uses the most extreme initial message, and dynamic intervention uses a more moderate message, and the myopic strategy the least extreme. To see why, note that 
+$$\tilde r_{0,j}^{os}=-\frac{\delta \lambda_j}{\delta+c(1-\delta\lambda_j^2)}\tilde x_{0,j}.$$
+In comparison, in the dynamic intervention case, we have
+$$\tilde r_0^j=-\frac{\delta K_{t,j}\lambda_j}{\delta K_{t,j}+c}\tilde x_{0,j}=-\frac{\delta \lambda_j}{\delta+c/K_{t,j}}\tilde x_{0,j},$$ where $K_{t,j}$ is endogenous as given by \eqref{ricattifinite} or by $K^*$ by \eqref{ricattiinf}. 
+Intuitively, the difference between the intensity of the initial intervention is summarized by the difference between $(I-\delta D^2)^{-1}$ and $K^*$, or $(1-\delta \lambda_j^2)$ and $1/K_j^*$ from the two expressions above. Both terms capture the long term payoff consequences of the initial intervention, but the initial message under one-shot intervention is always more extreme than that under dynamic intervention for $c\in(0,\infty)$. This is because dynamic intervention can gradually push the agenda towards $\mathbf 0$, but one-shot intervention cannot. To see this, recall that for every $j$, the equation that determines $K_j^*$ is:
+$$\delta( K_j^*)^2+(c-\delta-\delta c \lambda_j^2)K_j^*-c=0,$$ which can be rewritten as:
+$$\delta (K_j^*)^2-\delta K_j^*=c\left(1-(1-\delta\lambda_j^2)K_j^*\right).$$
+We have shown above that $K^*\geq I$, and thus each $K_j^*>1$, which implies that the LHS above is positive and increases in $K_j^*$. therefore the RHS must be positive, and thus $1-\delta\lambda_j^2\leq 1/K_j^*$. Moreover, if $c$ increases, $K_j^*$ decreases. For all $\lambda_j>0$ and $c\in (0,\infty)$, $1-\delta\lambda_j^2< 1/K_j^*$, and thus the initial intervention in this dimension is more extreme in the one shot intervention case. In turn, the messages in dynamic intervention were initially more extreme than those in myopic intervention, and become less extreme later. The reason is simple: dynamic intervention pushes harder against the agent's opinions to speed up convergence because it cares about the total dscounted payoff. As the opinions grow closer to her agenda, the messages become less extreme until it becomes $0$. Myopic intervention does not have such a long term payoff in mind.
+
+Next, the ranking of payoffs and convergence speed are closely related. By revealed preference, one shot intervention is better for the strategic agent than no intervention, and worse than optimal intervention. The payoff comparison between one-shot intervention---which allows for some long term consideration---and myopic strategy is less obvious. After all, both are suboptimal responses of the strategic agent. 
+By Envelope theorem, the strategic agent's payoff under all interventions decrease in $\delta$ and $c$. The question is how fast the payoff decreases under different intervention. In each dimension $j$, we can show that the payoff difference between the myopic and the one shot intervention is
+\begin{align}
+\label{paydiff}
+-\left(\frac{\delta c\lambda_j^2(\delta+c)}{(\delta+c)^2-\delta c^2\lambda_j^2}\right)(\tilde x_0^j)^2-\left(-\frac{\delta c\lambda_j^2}{\delta+c(1-\delta \lambda_j^2)}\right)(\tilde x_0^j)^2>0.\
+\end{align}
+The difference is positive and increasing in $\delta$. Both terms are decreasing in $\delta$, but the one shot payoff decreases faster because the higher is $\delta$, the worse is the payoff from the opinions not converging to the strategic agent's agenda $0$. The payoff difference, in contrast, is nonmonotonic in $c$. The difference is $0$ at $c=0$ and $0$ at $c=\infty$, but the payoff difference is the highest at intermediate cost, in which case one-shot intervention cannot use a very extreme message due to the high convex ost, but the myopic intervention can spread the cost over many periods. %the one shot payoff is decreasing and convex in c, but the myopic one is decreasing, but the second derivative is ambiguous. 
+
+
+
+Another way to see the payoff difference is from the convergence speed.  In the one shot intervention case, the initial message can only change $\x_1$, but it does not change the convergence speed, which is the same as under no intervention $D^t$. Myopic intervention has a convergence speed of $(\frac{\delta}{\delta+c})^tD^t$. Because dynamic intervention pushes more strongly in each period ($|L^*|>|L^m|$), dynamic convergence is the fastest for all $\delta,c$ and $\tilde \x_0$. This also explains why the cumulative payoff from dynamic intervention is initially lower than that under myopic intervention. This is because the strategic agent pushes more intensely and pays a higher cost initially to speed up convergence and her long term payoff. 
+
+
+\noindent \textbf{Proof of Proposition \ref{compare}:} the optimal strategy for each intervention is given in the text, and thus the convergence speed and the initial message comparison follow immediately. The key part of the result is the payoff comparison between one-shot and myopic intervention. Recall that in the one-shot intervention case, the strategic agent's optimal payoff is: \wl{need to check}
+\begin{align*}
+&-\tilde\x_0'\tilde \x_0-c\re_0'\re_0-\sum_1^\infty\delta^t \tilde\x_1'D^{2(t-1)}\tilde\x_1 \\
+&= -\tilde\x_0'\tilde \x_0-\frac{\delta^2}{c}\tilde \x_1'(I-\delta D^2)^{-2}\tilde \x_1-\delta\tilde \x_1'(I-\delta D^2)^{-1}\tilde \x_1\\
+&= -\tilde\x_0'\tilde \x_0-\tilde\x_0'\left(I-(cI+\delta(I-\delta D^2)^{-1})^{-1}\delta(I-\delta D^2)^{-1}\right)^2D^2\left(\frac{\delta^2}{c}(I-\delta D^2)^{-2}+\delta(I-\delta D^2)^{-1}\right)\tilde \x_0\\
+&=-\tilde\x_0'\tilde \x_0-\tilde \x_0'c^2(I-\delta D^2)^2(c(I-\delta D^2)+\delta I)^{-2}D^2\frac{\delta}{ c}(c(I-\delta D^2)+\delta I)(I-\delta D^2)^{-2}\tilde \x_0 \\ %the above lines look bad, but actually simple component by component, here in matrix form, it is ugly because we have to break I=M^{-1}M a couple of times since hte inverse of the sum is a bit annoying.
+&=-\tilde \x_0'\tilde\x_0-\tilde \x_0'c\delta(c(I-\delta D^2)+\delta I)^{-1}D^2\tilde \x_0. \
+\end{align*}
+The optimal payoff in the myopic case is: %\wl{can directly use the steady state ricatti equation to get the same, it is faster, but needs more explaning.}
+$$-\sum_0^\infty \delta^t(\tilde \x_t'\tilde \x_t+c\tilde\re_t'\tilde \re_t).$$
+We know that $\re_t=-\frac{\delta}{\delta+c}D\tilde \x_t$, therefore 
+$$\tilde\x_t'\x_t+c\tilde \re_t'\tilde \re_t=\tilde \x_t'\left(I+\frac{c\delta^2}{(\delta+c)^2}D^2\right)\tilde \x_t.$$
+Further, it is easy to see that $\tilde \x_t=(D+L^m)^t\tilde \x_0=(\frac{c}{\delta+c})^tD^t\tilde \x_0$. Together, we have the total discounted payoff from period $0$ is:
+\begin{align}
+\label{myopicpayoff}
+-\tilde \x_0'\left(I-\frac{\delta c^2}{(\delta+c)^2}D^2\right)^{-1}\left(I+\frac{c\delta^2}{(\delta+c)^2}D^2\right)\tilde \x_0.\
+\end{align}
+We can now compare \eqref{myopicpayoff} with the payoff from one shot intervention above:
+\begin{align}
+-\tilde \x_0'\tilde\x_0-\tilde \x_0'c\delta(c(I-\delta D^2)+\delta I)^{-1}D^2\tilde \x_0. \label{oneshotpay}\
+\end{align}
+It is easier to use dimension wise comparison here: since $\tilde \x_0$ is fixed, for dimension $j$, \eqref{myopicpayoff}-\eqref{oneshotpay} is:
+$$-\delta c\lambda_j^2\left(\frac{\delta+c}{(\delta+c)^2-\delta c^2\lambda_j^2}-\frac{1}{\delta+c(1-\delta \lambda_j^2)}\right)\propto -\delta c\lambda_j^2\left(-c\delta\lambda_j^2(1-\frac{c}{\delta+c})\right)>0.$$ It is easy to check that each  denominator is positive. Therefore the myopic payoff is always higher than that of the one shot payoff for all $\delta,c,\lambda_j>0$.  $\|$
+
+
+
+
+Not sure yet, but we may want to say something about finite $T$.
+
+First, when $T$ is finite. By definition, all strategies lead to the same payoff if $T=1$. But the one-shot strategy in this case becomes:
+$$ -c\tilde\re_0-\delta(I+\delta D^2+\delta^2 D^4+...+\delta^T D^{2(T-1)})\tilde \x_1=-c\tilde\re_0-\delta(I-(\delta D^2)^{T})(I-\delta D^2)^{-1}\tilde \x_1=0.$$ Let $M(T)=(I-(\delta D^2)^{T+1})(I-\delta D^2)^{-1}$, then we have  
+$$\tilde \re_0=-(cI+\delta M(T))^{-1}\delta M(T)D\tilde \x_0.$$ We can think of the payoff as counting from $\tilde x_1$, so it becomes: $-\delta\tilde \x_1'K(T)\tilde\x_1$.
+
+In myopic strategy, opinions evolve according to: $$\tilde \x_t=\frac{c}{\delta+c}D\tilde \x_{t-1}=(\frac{c}{\delta+c})^tD^t\tilde \x_0.$$ Thus the payoff is: $$-\tilde \x_0'\tilde \x_0'-\delta\tilde\x_0'(I-\frac{\delta}{\delta+c}D)^{-1}\tilde\x_0.$$
+
+
+
+
+
+\subsection*{Result on more general $A$} 
+
+%wei: we can decide later, for the result, A does not have to be decomposed at all. But for the point about zero singular values, like the symmetric opinion leader case after the result, we do need the decomposiiton. And if we want to do anything like robustness--focusing on some dimension only because of constraints, or lack of information, SVD may be the only way to go. So I am not sure what to do.
+Recall that the strategic agent chooses a sequence of messages $\re^0=\{\re_0,\ldots,\re_{T-1}\}$ to maximizes her total discounted stage payoff: 
+$$-\sum_{0}^{T-1} \ \delta^t (\x_t' \x_t+c\re_t'\re_t)-\delta^{T}\x_T'\x_T.$$ 
+The opinions evolve according to $\x_{t}=A\x_{t-1}+\re_{t-1}$. When $A$ is not symmetric, we need to use the more general singular value decomposition (SVD) method.\footnote{While we can assume $A$ is diagonalizable and thus has an eigenvalue decomposition $A=P'DP^{-1}$, but if $A$ is not symmetric, $P^{-1}\neq P'$, and we lose the tractability in the main model. Thus we use the  SVD method for general analysis.} For any $A$, it is easy to show that $A'A$ is symmetric and thus has real, non-negative eigenvalues. Let the eigenvalues of $A'A$ be ranked as $(\sigma_1^2,\ldots,\sigma_n^2)$ by magnitude; that is, $\sigma_j^2\geq \sigma_{j+1}^2$. Next, let $U$ be the matrix of orthonormal eigenvectors of $AA'$ and $V$ be the matrix of orthonormal eigenvectors of $A'A$. That is, $U'U=V'V=I$. A column of $U$ is denoted as $\ue_j$ and each column of $V$ is denoted as $\ve_j$. Then $U$ and $V$ are defined as $$A\ve_j=\sigma_j\ue_j, \ \mbox{and} \ A'A\ve_j=\sigma_j^2\ve_j.$$ Then we can rewrite $A=USV'$ where $S=diag\{\sigma_1,\ldots,\sigma_n\}$. 
+Two important points in interpreting these values. First, because $A\ve_j=\sigma_j\ue_j$, we can think of $\ue_j$ as how much agent $i$ listens to other opinions in the network. Similarly, we have $A_j'\ue_j=\sigma_j\ve_j$, so we can think of $\ve_j$ as how much others listen to agent $i$. Second, because $A$ is a weighted sum, the first term $\sigma_1\ue_1\ve_1'$ is the closet approximation of $A$, and thus is the most important in agent $s$'s decision. The other terms are less important.
+
+\wl{not sure how to present this, but just try to organize this for now}
+
+\begin{proposition}
+\label{generala}
+Let $A=USV'$. 
+(1) If $T$ is finite, then the strategic agent's optimal strategy is $\tilde \re_t^*=L_t\tilde\x_t$, %wei: it is possible to write it as the product, but very messy, maybe not so worthwhile
+in which $L_t=-(\delta K_{t+1}+cI)^{-1}\delta K_{t+1}V'US$ and $K_t$ is defined iteratively as $K_T= I$, and
+\begin{align}
+\label{ricattifinite2}
+K_t=I+\delta SU'V\left(K_{t+1}-\delta K_{t+1}(cI+\delta K_{t+1})^{-1}K_{t+1}\right)V'US.\
+\end{align}
+(2) If $T=\infty$, then the optimal steady state %wei: i remember you didn't like steady state, but we should give it a name?
+ strategy is $\tilde \re_t^*=L^*\tilde \x_t$, in which $L^*=-(\delta K^*+cI)^{-1}\delta K^*V'US$ and $K^*$ is the unique positive definite matrix that solves
+\begin{align}
+\label{ricattiinf2}
+K^*=I+\delta SU'V\left(K^*-\delta K^*(cI+\delta K^*)^{-1}K^*\right)V'US. \
+\end{align}
+Moreover, the agent's opinion converge to $\mathbf 0$. \wl{please see proof, one small point remaining}
+\end{proposition}
+
+\noindent \textbf{Proof of Proposition \ref{generala}:} we now transform the problem according to $A=USV'$. We still use the matrix of the row eigenvector as the new basis:  $\tilde \x_t=V'\x_t$. Then similar to the symmetric $A$ case before, when $T$ is finite, $\tilde V_{T}(\x_T) = -\tilde\x_T'\tilde\x_T$, and 
+$$ \tilde V_{T-1}(\tilde\x_{T-1})= \max_{\tilde\re_{T-1}}-\left \{  \tilde \x_{T-1}'\tilde \x_{T-1}+c\tilde\re_{T-1}'\tilde\re_{T-1}+ \delta(V'US\tilde\x_{T-1}+\tilde\re_{T-1})'(V'US\tilde\x_{T-1}+\tilde\re_{T-1})\right \}.$$ 
+
+\wl{cannot decide which way to go: with bots and so on the expanded $A$ is asymmetric no matter what $A$ is. So succinct form of general $A$ is needed. I will do the other side by side and let us take one. Want this one to be the most general proof and all follows.}
+
+Agent $s$ chooses $\re_{T-1}$ to maximize:
+\begin{align*}
+& \ V_{T-1}(\x_{T-1}) \\
+=& -\max_{\re_{T-1}}\left \{  \x_{T-1}'\x_{T-1}+c\re_{T-1}'\re_{T-1}+ \delta(A\x_{T-1}+\re_{T-1})'(A\x_{T-1}+ \re_{T-1})\right \}.
+\end{align*}
+****************
+
+Differentiate with respect to $\tilde\re_{T-1}$ and set the derivative to zero we obtain 
+\begin{align*}
+	-(\delta+c)\tilde \re_{T-1} =  \delta V'US\tilde\x_{T-1}.
+\end{align*}
+Thus the optimal $\tilde\re_{T-1}$ can be uniquely computed as
+\begin{align*}
+	\tilde\re_{T-1}^* = L_{T-1}\tilde \x_{T-1}=-\frac{\delta}{\delta+c}V'US\tilde \x_{T-1}.\
+\end{align*}
+Unlike the symmetric $A$ case, the strategy $L_{T-1}$ is not a diagonal matrix.
+
+Differentiate with respect to $\re_{T-1}$ and set the derivative to zero we obtain 
+\begin{align*}
+	-(\delta+c)\re_{T-1} = \delta A\x_{T-1}.
+\end{align*}
+ Therefore, the optimal $\re_{T-1}$ can be uniquely computed as
+\begin{align*}
+	\re_{T-1}^* = -\frac{\delta}{\delta+c}A\x_{T-1}.
+\end{align*}
+
+**************
+
+
+Since the objective function is concave, and the opinion evolution is linear, the FOC suffices. Substitute the above into the value function at time $T-1$, we have
+\begin{align*}
+	\tilde V_{T-1}(\tilde\x_{T-1}) =&- \tilde\x_{T-1}'\tilde \x_{T-1}-c\tilde \re_{T-1}'\tilde \re_{T-1}-\delta \tilde \x_T'\x_T\\
+	=&-  \tilde\x_{T-1}'\left(I+c\frac{\delta^2}{(\delta+c)^2}S^2+\delta\frac{c^2}{(\delta+c)^2}S^2 \right)\tilde\x_{T-1}. 
+\end{align*}
+This can also be written as
+\begin{align*}
+	& \tilde V_{T-1}(\tilde\x_{T-1})  = -  \tilde\x_{T-1}' K_{T-1} \tilde\x_{T-1}, \ \mbox{where} \ K_{T-1} = I+\frac{\delta c}{\delta+c}S^2.
+\end{align*}
+Clearly, $K_{T-1}$ is diagonal, with each $j$th entry increasing in $c$ and $\delta$, and in the singular values $\sigma_j$. 
+
+Since the objective function is concave, and the opinion evolution is linear, the FOC suffices. Substitute the above into our value function at time $T-1$ we have
+\begin{align*}
+	V_{T-1}(\x_{T-1}) =&-  \x_{T-1}'\left(I+\delta(A- \frac{\delta}{\delta+c}A)'(A-\frac{\delta}{\delta+c} A)\right)\x_{T-1}\\
+	=&-  \x_{T-1}'\left(I+  A'\frac{\delta c}{\delta+c}A \right)\x_{T-1}. 
+\end{align*}
+This can also be written as
+\begin{align*}
+	& V_{T-1}(\x_{T-1})  = -  \x_{T-1}' K_{T-1} \x_{T-1}, \ \mbox{where} \\
+	& K_{T-1} = I+  A'\frac{\delta c}{\delta+c}A.
+\end{align*}
+By definition, for all $\x_{T-1}\in \mathbb{R}^n$,
+\begin{align*}
+	 & \ -\x_{T-1}' K_{T-1} \x_{T-1}\\
+&= \max_{\re_{T-1}}- \{  \x_{T-1}'\x_{T-1}+c\re_{T-1}'\re_{T-1}+\delta(A\x_{T-1}+\re_{T-1})'(A\x_{T-1}+ \re_{T-1}) \}.
+\end{align*}
+Clearly, the right hand side is negative if $\x_{T-1} \neq 0$ (and thus $\re_{T-1}\neq 0$). Maximization over $\re_{T-1}$ preserves negativity, implying that for all $\x_{T-1} \neq 0$, $\x_{T-1}' K_{T-1} \x_{T-1}>0$. Therefore, $K_{T-1}$ is positive definite. 
+
+**************
+
+
+To complete the iterative solution, we now show that $\tilde V_t(\tilde \x_t)=-\tilde \x_t'K_{t}\tilde \x_t$ for a given $K_{t+1}$. 
+Since $$\tilde V_t(\tilde \x_t)=\max_{\re_t}-\tilde \x_t'\tilde\x_t-c\tilde\re_t'\tilde\re_t-\delta \tilde \x_{t+1}K_{t+1}\tilde\x_{t+1},$$ where $\tilde\x_{t+1}=V'US\tilde \x_t+\tilde\re_t$. The FOC yields: $$(cI+\delta K_{t+1})\tilde \re_t=-\delta K_{t+1}V'US\tilde \x_t.$$ Substitute into the value function, and we have
+\begin{align*}
+\tilde V(\tilde\x_t)=-\tilde \x_t'\left(I+\delta SU'V\left(K_{t+1}-\delta K_{t+1}(cI+\delta K_{t+1})^{-1}K_{t+1}\right)V'US\right)\tilde \x_t.\
+\end{align*}
+Thus $L_t=-(cI+\delta K_{t+1})^{-1}\delta K_{t+1}V'US$, and
+$$K_t=I+\delta SU'V\left(K_{t+1}-\delta K_{t+1}(cI+\delta K_{t+1})^{-1}K_{t+1}\right)V'US,$$ completing the iterative solution.
+
+Similarly, we find that for all $0< t<T$, $\re^*_{t-1} = L_{t-1}\x_{t-1}$, where
+\begin{align}
+L_{t-1} = -(cI+\delta K_{t})^{-1}\delta K_{t}A. \label{optimalstrategy} \
+\end{align}
+\begin{align}
+K_{t} = I+ \delta A'\left(K_{t+1} - K_{t+1}(cI+\delta K_{t+1})^{-1} K_{t+1} \right)A.  \label{ricattifiniteold} \
+\end{align}
+***********************
+
+Next, from Proof of Proposition \ref{basic}, \wl{we can put the long proof about existence here.} we know the limit $K^*$ exists, take the limit of the finite horizon Ricatti equations and $K^*$ must satisfy
+$$K^*=I+\delta SU'V\left(K^*-\delta K^*(cI+\delta K^*)^{-1}K^*\right)V'US,$$ and $L^*=-(\delta K^*+cI)^{-1}\delta K^*V'US$. 
+
+\wl{after the side by side comparsion, it seems that $K=V\tilde KV'$, where $\tilde K$ is the ricatti matrix from the decomposed version. if correct, we can freely go from one to the other.}
+
+*******************
+
+\wl{Need work}: the old proof assumes $A$ is substochastic, and now $A$ is Markov, so the condition on convergence needs to change a bit.
+
+
+The opinions evolve according to ${\x_{t+1}=(A+L)\x_t}$. To show convergence, we need to show the matrix $A+L$ is stable, in which case $\x_t\to \mathbf 0$ if $t\to \infty$. By the PBH stabilizability test, $(A,I)$ is stabilizable if $rank(A-\lambda I;I)=n$ for all $\lambda \geq 1$.
+So we want to check the full rank condition of $n$ by $2n$ matrix $(A-\lambda I;I)$. 
+Since the last $n$ columns form $I$, no row can be written as a linear combination of other rows and thus $rank(A-\lambda I;I)=n$ for all $\lambda \geq 1$. 
+%Suppose that $rank(A-\lambda I)<n$ for some $\lambda$. Then $(A-\lambda I)$ is singular, and there exists some $\x \in \mathbf R^n,\x\neq 0$ such that $(A-\lambda I)\x=0$. By definition, $\x$ is an eigenvector of $A$ with the corresponding eigenvalue $\lambda$ such that $\lambda \x=A\x$. That is, for $A-\lambda I$ to be rank deficient, $\lambda$ must be an eigenvalue of $A$.  But the largest eigenvalue of $A$ is $1$. Therefore $rank(A-\lambda I)=n$ for all $\lambda>1$.
+%Since $I$ itself has rank $n$, the matrix must have rank no less than $n$.  %We only need to check the case for $\lambda=1$, that is, the rank of $A-I;I$. \wl{is this enough? can you show more formally this has rank n?}
+%xu: I think your proof works because no row can be written as a linear combination of other rows due to I. But then this argument can easily show $(A-\lambda I;I)$ has full rank, no need to include the part in the middle of this paragraph... 
+Therefore $(A+L)$ is stable. In this case, we can rewrite the $K^*$ equation as: for $L=-\delta(\delta K^*+cI)^{-1}K^*V'US$,
+%\begin{align*}
+%K & =  \delta A^'\left(K-KB(B^'KB+R/\delta)^{-1}B^'K\right)A+Q \\
+%&=\delta\left(A^' KA+A^' KB(B^' KB+R/\delta)^{-1} B^' KA-2A^' KB(B^' KB+R/\delta)^{-1} B^' KA\right )+Q \\
+%&=\delta\left(A^' KA+L^' (B^' KB+R/\delta)L+L^' B^' KA+A^' KBL\right)+Q \\
+%&=\delta(A+BL)^' K(A+BL)+ L'RL+Q, \
+%\end{align*}
+%which is  the Lyapunov equation
+\begin{align}\label{lyainf}
+K^*=I+cL'L+\delta[(A+ L)'K^*(A+L)],
+\end{align}
+which is the Lyapunov equation. If $A+L$ is stable, then equation \eqref{lyainf} has a unique solution $K=\sum_{p=0}^{\infty}\delta^p((A+L)')^p(I+cL'L)(A+L)^p$. Thus agent $s$ has a unique steady-state strategy. $\|$
+
+
+
+
+Note: This implies that the myopic problem still has an easy structure because it is a sequence of one-period maximization. So the opinions evolve as $\tilde \x_t=\frac{\delta}{\delta+c}V'US\tilde \x_{t-1}$ and the value function is simple. The no intervention problem is messier because $(A^2)'A^2$ does not have a simple decomposition. But the solution is still easy since $A$ is still Markov.
+
+
+In the general $A$ case, $K_t$ is no longer diagonal, and thus there are no easy closed form solution. One thing worth pointing out is that if the singular value is very small ($\sigma_j\to 0$), then in the iterative solution (and in the infinite horizon $K^*$) later, $K_{t,j}=1$. That is, the strategic agent does not intervene in this dimension at all. This is because $A$ can be similarly decomposed into:
+$$A=\sigma_1\ue_1\ve_1'+\ldots\sigma_n\ue_n\ve_n',$$ where each $\ue_k\ve_k'$ is a rank one matrix. We can think of each of the terms above as capturing part of $A$. Because the singular values are ranked, the first one is the closest rank-one approximation of $A$, that is, it captures the most of the connections among agents. As such, it is the most important for the strategic agent. The other terms are ranked similarly. The importance of this is that if in a network, some of the singular values are close to $0$, then they don't matter to the strategic agent, and she should focus on the dimensions with the largest singular values, see the symmetric opinion leader network for an example.
+
+
+Now we can use the observation that no intervention when singular value is $0$ a bit. consider a highly symmetric opinion leader network where the columns are labeled by $a_1>a_2>\ldots>a_n$. So everyone gives more weight to agent $1$ and so on. Note that we can easily see the singular values because $AA'=(a_1^2+\ldots+a_n^2)J$, where $J$ is the all 1 matrix. Thus $\sigma_1=n(a_1^2+\ldots+a_n^2)>1$ and $\sigma_k=0$ for all other $k$. Therefore other dimensions do not matter, it is optimal to set $\tilde y_{0,k}=\tilde x_{0,k}$ for $k>1$. We just need to focus on the first dimension. 
+Next, each $\ue_i$ is a normalized eigenvector of $AA'$, and $\ue_1=(1,\ldots,1)'$. Next, from $A=\sigma_1\ue_1\ve_1'$ we can see that $\ve_1'$ is proportional to $(a_1,a_2,\ldots,a_n)$. that is, in the projection, each agent's initial opinion gets a weight proportional to the column weight each attaches to agent $1,2...$. Next, by calculation, we can show the strategic agent's payoff is equal to:
+$$-\frac{c}{c+\frac{\delta \sigma_1^2}{1-\delta \sigma_1^2}}\tilde x_{0,1}^2.$$ In this network, the weighted sum of initial opinions is the only thing matters, holding matrix $A$ fixed. Since $\tilde x_{0,1}=\ve_1'x_0$, the larger (in absolute value) of agent $1$'s opinion is, the worse off is the strategic agent because she needs to move a larger average opinion closer to her agenda. But note that, balanced opinions, some positive and some negative, are better than all the opinions are of the same sign (with the same magnitude). This is because the agents opinions offset each other and the strategic agent needs to do less. Next, hold $\x_0$ fixed, an increase in a higher $a_1$ with a decrease in some $a_k,k<i$ increases $\sigma_1$, but the effect on $\tilde x_{0,1}$ is ambiguous. In particular, if $x_{0,1}$ is moderate, while the strategic agent is willing to pay more because the dynamic term is larger, the average opinion may move in her direction.
+
+%, for $L=-\delta(\delta K+CI)^{-1}KV'US$, 
+%\begin{align*}
+%K & =  \delta A^'\left(K-KB(B^'KB+R/\delta)^{-1}B^'K\right)A+Q \\
+%&=\delta\left(A^' KA+A^' KB(B^' KB+R/\delta)^{-1} B^' KA-2A^' KB(B^' KB+R/\delta)^{-1} B^' KA\right )+Q \\
+%&=\delta\left(A^' KA+L^' (B^' KB+R/\delta)L+L^' B^' KA+A^' KBL\right)+Q \\
+%&=\delta(A+BL)^' K(A+BL)+ L'RL+Q, \
+%\end{align*}
+%which is  the Lyapunov equation
+%\begin{align}\label{lyainf}
+%K=Q+L'RL+\delta[(A+B L)'K(A+BL)].
+%\end{align}
+
+
+Extend this to simple core-peripheral networks.
+
+\subsection*{Bots and more bots}
+
+The analysis for general $A$ can also be used to study the issue of agents with fixed agendas trying to influence the network; and the strategic agent's best response to it. 
+In many networks, there are agents, human or bots, promoting their agendas. For instance, \cite{Vosoughi2018} show that in 2017, there were 23 million bots on Twitter (around 8.5\% of all accounts), 140 million bots on Facebook (up to 5.5\% of accounts) and around 27 million bots on Instagram (8.2\% of the accounts).\footnote{According to the 2021 research report titled ``Bot Attacks: Top Threats and Trends" from security firm Barracuda, more than two-thirds of internet traffic is bots. In addition, 67\% of bad bot traffic originates from public data centers in North America.} The bots' behavior is defined by sending persistent, repetitive messages (spam) at little to no cost. 
+We now consider how the strategic agent counters the influence of these bots who always send fixed messages. This is an important issue in its own right, also the best responses of the strategic agent to the bots' agenda is a bridge to the model with more strategic agents. 
+
+%wei: whatever we do, the bots have to be part of the network, otherwise the baseline model with just bots is ill behaved. This version has the generlized A still Markov.
+To fix ideas, consider the case in each period the network $A$ consists of $n$ agents and some bots. The naive agents update opinions as before, and the bots send a vector of fixed messages  $\z \in \mathbb R^n, \z \neq \mathbf 0$ from the bots. One can think of $\z_1$ as the sum of the messages all the bots send to agent $1$, and so on. We will not track the number of bots because only the aggregate message matters. The strategic agent sends a message $\re_t \in \mathbb R^n$ as before. The network opinions evolve according to: $$\x_{t+1}=A^n\x_t+ A^c\z+\re_t,$$ where $A^n$ is the weight matrix the naive agents' listen to each other's opinions; $A^c=diag(\{c_1,\ldots,c_n\})$ is the weight matrix each naive agent listens to the bots' message; and $\sum_{j=1}^n A^n_{ij}+c_i=1$ for every naive agent $i$. Moreover, we assume $c_i>0$ for all $i$.\footnote{The naive agents do not know who the bots are, the separation into $A^n$ and $A^c$ are for analytical convenience. The assumption that $c_i>0$ for all $i$ is to guarantee the existence of $(I-A^n)^{-1}$.} \wl{can further generalize $A^c$ if needs be...} 
+
+We can then rewrite the problem as:
+\begin{align*}
+\bm \chi_{t+1}=\begin{bmatrix}
+\x_{t+1}\\
+\z
+\end{bmatrix}=
+\begin{bmatrix}
+A^n & A^c\\
+\mathbf 0 &	I
+\end{bmatrix}
+\begin{bmatrix}
+\x_t\\
+\z
+\end{bmatrix}+
+\begin{bmatrix}
+I \\
+	0
+\end{bmatrix}\re_t=A\bm\chi_t+B\bm\re_t.\
+\end{align*}
+To interpret this, note that the new state variable $\bm\chi_t$ is the stacked $2n\times 1$ vector of the agent's opinions and the bot's agenda. The new state variables evolve according to an expanded $2n\times 2n$ matrix $A$, accounting for the fact that bots never change their messages; and the  messages $\re_t$, multiplied by the $2n\times n$ matrix $B$ because the strategic agent never sends costly messages to the bots. Note that $A$ remains a Markov matrix, and it is asymmetric due to the presence of the bots. So we can apply the general $A$ result from above.
+
+The strategic agent's total discounted payoff can then be rewritten as:
+$$-\sum_{t=0}^T \delta^t\left (\bm\chi_t'Q\bm\chi_t+c\re_t'\re_t\right).$$ Here $Q$ is a block matrix: the $n \times n$ identity matrix as before since agent $s$ cares equally about every naive agent's opinion, expanded with additional $\mathbf 0$ as the last $n$ rows and columns, because the strategic agent does not care about the bots. The first thing to observe is that in this expanded problem, the optimal strategy is linear in both the agents' opinions and in the bots' agenda $\z$. To see this, let us consider the first order condition at period $T-1$ that, as before, the optimal (and the myopic strategy) is:
+$$\re_{T-1}=-(\delta B'QB+cI)^{-1}\delta B'QA\bm\chi_{T-1}=-\frac{\delta}{\delta+c}(A^n\x_{T-1}+A^c\z ).$$ The $i$-th dimension is then simply: $r_{T-1}^i=-\frac{\delta}{\delta+c}(A^n_i\x_{T-1}+c_iz_i)$.  Compare with the general $A$ model above, we can see the strategic agent pushes back against each agent $i$'s current opinions and against the influence of the bots on agent $i$. It is easy to see that in every period, her message follows the same pattern of perpetually pushing against the bots' agenda. We then have the following result: 
+\begin{proposition}
+\label{bot}
+If $T=\infty$, there exists a steady-state strategy $\re_t=L_{ss}\bm\chi_t$ where $L_{ss}=-(\delta B' K^*B+cI)^{-1}\delta B'K^* A$ 
+and $$K^* = Q+ \delta A'\left(K^*- \delta K^*B(\delta B'K^*B+cI)^{-1}B'K^*\right)A.$$ 
+The naive agents' opinions converge: $\lim_{t\to \infty}\x_t=\x_\infty$. Moreover, $$\x_\infty=(I-A^n)^{-1}(A^c\z+\re_{ss}),$$ where $\re_{ss}=L_{ss}\bm\chi^\infty$ and  $\bm\chi_\infty=(\x_\infty,\z)'$. The naive agents disagree with each other and the strategic agent in the long run.
+\end{proposition}
+
+*****sketch of proof strategy****
+
+The characterization follows from the general $A$ analysis. One challenge was that whether the limit opinion exists. This is because $A$ is an upper triangular block Markov matrix, so it has $n$ eigenvalues of $1$ and all the other eigenvalues are smaller than $1$ in absolute value. By the PBH test, if $A+BL_{ss}$ is stable, then $\bm\chi_t\to \mathbf 0$. To do so, we need for all eigenvalues of $A$ greater or equal to $1$ (absolute value), $(A-\lambda I;B)$ has full row rank $2n$. Clearly, at $\lambda=1$, $(A-I;B)$ only has rank $n$, since the bottom $n$ rows are all $0$. But notice that in the expanded problem, the limit cannot be $\mathbf 0$ simply because by definition, the bottom rows are always the bots' agenda $\z$. But the top $n$ rows of $(A-I;B)$ have full rank because the top block of $B$ is just $I_n$. So this submatrix $(A^n-I, A^c; I)$ has full row rank ank and is stable, so the naive agents' opinions have a limit. 
+
+\wl{new method} To show it formally, I thought of a different way of formalizing the problem. Go back to the original problem, then we have:
+$\x_{t+1}=A^n\x_t+A^c\z+\re_t$, where $A^n$ is substochastic. As before, $A^c=diag(c_1,\ldots,c_n)$. Then we can rewrite the opinion evolution as:
+$$\x_{t+1}-(I-A^n)^{-1}A^c\z=A^n(\x_t-(I-A^n)^{-1}A^c\z)+\re_t.$$ Since $c_i>0$ for all $i$, $I-A^n$ is invertible. Now, let $\y_t=\x_t-(I-A^n)^{-1}A^c\z$, and further, let $\be=(I-A^n)^{-1}A^c\z$, which is determined by exogenous variables. Then the transformed problem becomes:
+$$\y_{t+1}=A^n\y_t+\re_t.$$ The strategic agent's stage payoff becomes:
+$$-(\y_t+\be)'(\y_t+\be)-c\re_t'\re_t,$$ the payoff looks different because the strategic agent only cares about $\x_t$.  But this problem is identical to the original problem, and thus the solutions are the same. 
+
+To solve this problem is more complicated than the first transformation, because the optimal strategy $\re_t$ is affine in $\y_t$, and the Ricatti matrix has two terms $K_t,k_t$. But we only want some properties from this problem. This is a well defined problem, so a solution exists (argument similar to the general $A$ case). Let $\re_{ss}=M\y_\infty+\mathbf n$. Then $$\y_t=(A^n+M)^t\y_0+\sum_1^\infty(A^n+M)^{t-1}\mathbf n.$$ We know that $(A^n+M)^t$ converges to $\mathbf 0$ because $A^n$ is substochastic, and an easy use of PBH test shows it is stable. A stable matrix has a converging power sum, and thus the rest of the terms converge to a constant term independent of $\y_t$.
+
+We can also compute the limit. Let $\re_{ss}$ be the message agent $s$ sends in the steady state. It is generically not $\mathbf 0$ because $\re_{ss}$ has a constant term. Thus $\y_\infty=A^n\y_\infty+\re_{ss} \ \Rightarrow \ (I-A^n)\y_\infty=\re_{ss}$. Moreover, $\y_\infty=\x_\infty-\be$, and thus we have:
+$$\x_\infty=(I-A^n)^{-1}(A^c\z+\re_{ss}).$$
+This looks very similar to the old model when we let strategic agent have influence $\be$ on each agent (but $r_t$ is a real number) and the bot has influence $\ce$ on each agent. There the limit opinion is simply $(I-A)^{-1}\ce z+(I-A)^{-1}\be r_{ss}$, where $A$ is the $A^n$ here. Note in that model, $z,r$ are both scalars.  But we no longer need to treat agent $s$ as a bot to get this result. $\|$
+
+
+With the bots, the strategic agent must accept that the naive agents disagree with her and each other in the limit. Unlike the benchmark model, getting the naive agents to agree with her agenda is not optimal in the presence of bots: even if $\x_t=0$, she still has to send a costly message every period to remove the bots' influence, yielding a lower payoff.\footnote{To get $\x_t=0$, she can send an optimal message each period of the form $L_t\x_t-A^c\z$, where $-A^c\z$ cancels out the bots' influence, and $L_t$ is the optimal strategy against the naive agents who updates opinions based on $\x_{t+1}=A^n\x_t+\re_t$.}  The limit opinions of the naive agents $\x_\infty$ are a weighted average of $\z$ and $\re_{ss}$, where $\re_{ss}$ is the strategic agent's steady state message to the naive agents. Interestingly, the weight assigned to each measures the cumulative influence of the bots and the strategic agents on each naive agent. To begin with, over time, all naive agents assign higher and higher weights to the bots and the strategic agent's messages, and move away from their initial opinions. In the limit, the influence from their fellow naive agents is equal to $\lim_{t \to \infty}(A^n)^t=0$. That is, only the strategic agent and the bots have influence. Moreover, the bots' influence on the naive agents is simply captured by $(I-A^n)^{-1}A^c\z$. 
+To parse this, note that after one period, the naive agents place weight of $(I+A^n)A^c$ on the bots' agenda $\z$. This is the sum of the direct influence and indirect influence from her neighbors who listen to the bots (walk of length $1$ and $2$ from the bots to her). Similarly, after many periods, the total weight on the naive agents becomes $(I+A^n+\ldots+(A^n)^\infty)A^c=(I-A^n)^{-1}A^c$. In the limit, this is the cumulative weight they assign to the bots.\footnote{Note that $(I-A)^{-1}$ is closely related to the centrality of \cite{katz1953}. In our model, the naive agents do not attach weights to their own initial opinions. In a network where each agent is attached to their own opinions with some positive probability, the above measure is similar to the Google PageRank system.} The strategic agent's cumulative weights can be similarly found. Moreover, because each agent assigns a weight of $1$ here to the strategic agent's message, she has a higher influence on the agents in the limit than the bots. To see this, note that since $A^n$ is substochastic, $(I-A^n)^{-1}$ has all non-negative entries. Thus because each agent only listens to bots with $c_i<1$, the strategic agent is more influential. 
+
+In general, the strategic agent's steady state message $\re_{ss}$ depends on the agents' steady state opinions, which in turn depend on the parameters of the model such as $c,\delta,\z$ and the endogeneous Ricatti matrix $K^*$. We now consider a special network to illustrate how the parameters may affect the agents. 
+Recall the highly symmetric matrix $A$ in which all the diagonal entries are the same, and all the off diagonal entries are the same. In the current setting, assume $A^n$ has such a structure, and thus the row sum $\sum_j A^n_{ij}=1-d$. This implies that all the diagonal entries of $A^c$ are the same: $A^c=dI$ (I may later change $A^c$ to $A^b$, the $c$ is already used...) Further, suppose that $\z=(z,\ldots,z)$, that is, the bots broadcast the same message to all agents. Then all the naive agents are symmetric in that they assign the same weights to their own opinions, and they treat all the other opinions from the network in the same way, which also implies they assign the same weight to the bots. This symmetry means that the strategic agent uses the same strategy: $L_t=(l_t,\ldots,l_t)$. Also,  if $t$ is large, she sends the same message to each agent: $\re_t=(r_t,\ldots,r_t)$ and $\x_t=(x_t,\ldots,x_t)$. \wl{Can there by asymmetric strategies? I don't think it is optimal, but I didn't prove it. But a symmetric solution always exists.} 
+
+\begin{corollary}
+In the highly symmetric matrix $A$ case, the naive agents have consensus in the limit, which is a linear function of $z$. The limit opinion increases in the cost $c$, weight $d$, and decreases in $\delta$.
+\end{corollary}
+From the result in Proposition \ref{bot} and the naive agents all update the opinions with the same weights, we know that they agree in the limit. Moreover, the limit opinion can be simply expressed as  $$x_\infty=\frac{cd-\delta k_2}{cd+\delta k_1}z,$$ where $k_1$ captures how important the naive agents' opinions differ from the strategic agent's agenda, and $k_2$ captures how important pushing back $z$ for the strategic agenda.\footnote{The high degree of symmetry reduces the matrix $K^*$ into three real numbers, and thus the strategic agent's value function depends only on these numbers.} Clearly, $x_\infty$ is proportional to the bot's agenda $z$. Moreover, the slope is between $0$ and $1$, and thus the limit opinion is always a linear combination of the bots and the strategic agent's agenda.  Note that if $c=\infty$, the limit opinion is simply $z$: the strategic agent does not attempt to influence the naive agents. If $c=0$, the limit opinion is $0$ since $k_2=0$: the strategic agent is willing to counter the bots. As the cost increases, the limit opinion becomes closer and closer to $z$. This is because $k_1/c$ and $k_2/c$ decrease in $c$: the strategic agent is worse off as $c$ increases, and she adjusts by intervening less, and thus the naive agents' opinion becomes closer to the bot's agenda. Similarly, the limit opinion becomes closer to $z$ if $d$ increases: if the bots are uniformly more influential, the strategic agents intervenes less. At $d=1$, $k_2=0$ because the strategic agent cannot indirectly influence the naive agents through the evolution of $x_t$. In each period, the naive agents believe in the bots' agenda, and the strategic agent can only directly intervene to prevent the opinions from going to $z$. In this case, the limit opinon becomes $x_\infty=\frac{c}{c+\delta}z$. The intensity of intervention merely depends on the relative magnitude of the cost and the discount factor. Finally, at $\delta=0$, $x_\infty=z$ because there is no intervention without long term considerations. In addition, the limit opinion $x_\infty$ decreases in $\delta$: the more patient is the strategic agent, the more she is willing to intervene to ensure a better payoff in the long run.
+
+
+
+The symmetry implies that the steady state Ricatti matrix $K^*$ has three highly symmetric submatrices: $K_1$ to measure the cost of changing the naive agents' opinions only, $K_2$ measures the cost of changing the agents' opinions and of pushing back against the bots' agenda; and $K_3$ is the cost of pushing back $\z$ alone. Since all three matrices are highly symmetric, let $k_1,k_2,k_3$ be the respective row sum of the submatrix $K_1,K_2,K_3$. Only these three variables enter into the agent's value function. This is because the strategy in each period is a weighted sum of current opinions and $z$, therefore the opinions in every period is linear in $x_t$ and $z$. In particular, if $t$ is large, then all agents have the same opinion, and the value function is of the form $V(x_t)=-k_1x_t^2-2k_2x_tz-k_3z^2$. 
+
+This problem then becomes simpler to solve because the opinion evolution is one dimensional: $$x_{t+1}=(1-d)x_t+dz+r_t.$$
+Solving the one dimensional value function iteration:
+$$\max_r -x_t^2-cr_t^2+\delta V(x_{t+1})=\max_r -x_t^2-cr_t^2-\delta k_1x_{t+1}^2-2\delta k_2x_{t+1}z-\delta k_3.$$
+
+
+
+
+The FOC gives: $$-(\delta k_1+c)r_t=\delta(1-d)x_tk_1+\delta dzk_1+\delta k_2z.$$
+Then substitute $r_t$ into the value function $V(x_t)$, we can match the coefficients and find out about $k_1,k_2,k_3$ ($k_3$ does not matter here).  We are only interested in the case when $t$ is large. 
+\begin{align*}
+k_1& =1+\frac{c\delta(1-d)^2k_1}{c+\delta k_1};\\
+k_2&=\frac{c\delta(1-d)(dk_1+k_2)}{c+\delta k_1} \ \Rightarrow \ k_2=\frac{c\delta(1-d)dk_1}{\delta cd-\delta c+c+\delta k_1}. \ 
+%k_3&=\frac{c\delta dz(dzk_1+k_2)}{c+\delta k_1}.\
+\end{align*}
+Clearly, $k_1>1$, $k_1$ increases in $c$ and $k_1/c$ decreases in $c$. Next, $k_2>0$ and increases in $c$, and $k_2/c$ decreases in $c$. Similarly, we can show that $\delta k_1$ and $\delta k_2$ increase in $\delta$. Also, $k_1$ decreases in $d$ and $k_2/d$ decreases in $d$. Also we can show that $\delta k_2<cd$.
+
+We can also show that:
+$$r_{ss}=-\frac{\delta}{c+\delta k_1}((1-d)k_1x_{\infty}+k_1dz+k_2z).$$
+Also, $$x_\infty=(1-d)x_\infty+dz+r_{ss}.$$ Together, we have $$x_\infty=\frac{cd-\delta k_2}{cd+\delta k_1}z.$$ Use the results above, and we obtain the comparative statics results above.
+
+
+\subsection*{Multiple strategic agents}
+
+Suppose there are two strategic agents. To begin with, assume they are homogeneous in their agenda, cost, and discount factor. 
+
+Let their period-$t$ utility be $\tilde V_t=-\tilde \x_t' K_t \tilde \x_t$. Then 
+$$
+\tilde V^1_{t-1}=-\tilde \x_{t-1}'\tilde \x_{t-1} - c\tilde(\re^1_{t-1})' \tilde \re^1_{t-1}- \delta(D\tilde \x_{t-1}+\tilde\re^1_{t-1}+\tilde\re^2_{t-1})' K_t (D\tilde \x_{t-1}+\tilde\re^1_{t-1}+\tilde\re^2_{t-1})
+$$
+Thus, the optimal message is $\tilde\re^1_{t-1}= - (cI+2\delta K_t)^{-1}\delta K_tD \tilde \x_{t-1}$, and the opinion changes according to $\tilde \x_t = (cI+2\delta K_t)^{-1}cD \tilde \x_{t-1}$. Putting them back to the utility function, we can derive how $K_t$ changes. 
+\begin{align}
+\label{k-multiple}
+	K_{t-1}= I+ c\delta (cI+\delta K_t)(cI+2\delta K_t)^{-2}K_tD^2
+\end{align}
+
+
+\xt{Agents with different agendas may be possible, although complicated, should we try?}
+
+Suppose strategic agent $s1$'s agenda is 0, while strategic agent $s2$'s agenda is $b$. %xu: a guess, in the long run, x_t converges to b/2? not sure
+Let their period-$t$ equilibrium utility be $\tilde V^1_t=-(\tilde \x_t-\beta_t^1)' K_t (\tilde \x_t-\beta^1_t)-v^1_t$ and $\tilde V^2_t=-(\tilde \x_t-\beta_t^2)' K_t (\tilde \x_t-\beta^2_t)-v^2_t$. 
+Consider period $t-1$, 
+$$
+\tilde V^1_{t-1}=-\tilde \x_{t-1}'\tilde \x_{t-1}-c (\tilde\re^1_{t-1})'\tilde\re^1_{t-1} - \delta (D\tilde \x_{t-1}+\tilde\re^1_{t-1}+\tilde\re^2_{t-1}-\beta^1_t)'K_t(D\tilde \x_{t-1}+\tilde\re^1_{t-1}+\tilde\re^2_{t-1}-\beta^1_t) - \delta v^1_t
+$$
+Thus,
+$$
+c\tilde\re^1_{t-1} = -\delta K_t (D\tilde \x_{t-1}+\tilde\re^1_{t-1}+\tilde\re^2_{t-1}-\beta^1_t)
+$$
+$$
+c\tilde\re^2_{t-1} = -\delta K_t (D\tilde \x_{t-1}+\tilde\re^1_{t-1}+\tilde\re^2_{t-1}-\beta^2_t)
+$$
+$$
+c(\tilde\re^1_{t-1}-\tilde\re^2_{t-1})=\delta K_t(\beta^1_t-\beta^2_t)
+$$
+$$
+\tilde\re^1_{t-1}=\tilde\re^2_{t-1}+\frac{\delta K_t}{c}(\beta^1_t-\beta^2_t)
+$$
+Thus,
+$$
+\tilde\re^1_{t-1}= -(cI+2\delta K_t)^{-1}\delta K_t(D\tilde \x_{t-1}- \frac{\delta K_t}{c}(\beta^1_t-\beta^2_t) -\beta^1_t)
+$$
+$$
+\tilde\re^2_{t-1}= -(cI+2\delta K_t)^{-1}\delta K_t(D\tilde \x_{t-1}+ \frac{\delta K_t}{c}(\beta^1_t-\beta^2_t) -\beta^2_t)
+$$
+Putting the optimal messages back into the utility function, we can derive the evolvement of $K_t$: 
+$$K_{t-1}= I+ c\delta (cI+\delta K_t)(cI+2\delta K_t)^{-2}K_tD^2$$
+which is exactly the same as \eqref{k-multiple}. 
+$$
+K_{t-1}\beta^1_{t-1}= \frac{c\delta^2 K_t^2 D}{(cI+2\delta K_t)^2} \left(\frac{\delta K_t}{c}(\beta^1_t-\beta^2_t) +\beta^1_t\right) - \frac{c\delta K_tD}{cI+2\delta K_t}\left( \frac{\beta^1_t+\beta^2_t}{cI+2\delta K_t} - \beta^1_t \right)
+$$
+$$
+K_{t-1}\beta^2_{t-1}= b\e - \frac{c\delta^2 K_t^2 D}{(cI+2\delta K_t)^2} \left(\frac{\delta K_t}{c}(\beta^1_t-\beta^2_t) -\beta^2_t\right) - \frac{c\delta K_tD}{cI+2\delta K_t}\left( \frac{\beta^1_t+\beta^2_t}{cI+2\delta K_t} - \beta^2_t \right)
+$$
+
+\bibliographystyle{unsrtnat}
+\bibliography{networkpapers}
+
+
+
+
+
+
+
+
+
+
+\end{document}
