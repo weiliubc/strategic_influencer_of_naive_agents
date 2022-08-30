@@ -4,14 +4,14 @@ This folder contains notebooks regarding the model in which a strategic agent se
 
 ## May 2022
 
-### [Singular-Instance Targeting Example](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/instance_targeting/instance_targeting.ipynb) 
+### [Singular-Instance Targeting Example](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/instance_targeting/instance_targeting.ipynb) 
 This notebook explores the model via several comparative statics exercises. Notably, a unique optimal r message appears to be linear in individual initial opinions (among other factors), and the optimal agent to target also depends on the individual initial opinions. Also notable is that the model performs worse than the original per-period targeting model for all of the cases checked with respect to initial opinions and delta. The A matrix in question was:
 ```
 [0.7, 0.3]
 [0.5, 0.5]
 ```
 
-### [Singular-Instance Targeting with a Stubborn Agent](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/instance_targeting/instance_targeting_stubborn.ipynb)
+### [Singular-Instance Targeting with a Stubborn Agent](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/instance_targeting/instance_targeting_stubborn.ipynb)
 This notebook is the exact same as the above one except the A matrix is replaced with:
 ```
 [0.99, 0.01]
@@ -21,5 +21,5 @@ which generates a stubborn agent like in the original simulations. All the resul
 
 ## July 2022
 
-### [One-Message Model with Diagonalizable A](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/instance_targeting/one_message_diagonalized.ipynb)
+### [One-Message Model with Diagonalizable A](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/instance_targeting/one_message_diagonalized.ipynb)
 This notebook takes a component the symmetric version of the payoff FOC and generalizes it for any diagonalizable network matrix A instead of only symmetric matrices. An elementwise analytical solution is found for the resulting infinite sum.
