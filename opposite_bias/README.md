@@ -4,7 +4,7 @@ This folder contains notebooks regarding models where strategic agents have agen
 
 ## October 2021
 
-### [Quick Test](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/quick_test.pdf)
+### [Quick Test](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/opposite_bias/quick_test.pdf)
 This notebook is a quick test of the model with strategic agents with opposing agendas and explores several cases and comparative statics.
 ```
 In the examples with the 10 and -5 agent agendas, the steady-state opinion is 0.609 (closer to the -5).
@@ -19,14 +19,14 @@ This then implies that cost is the factor that causes the "opinion bias" in the 
 
 ## November 2021
 
-### [Addendum](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/addendum.pdf)
+### [Addendum](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/opposite_bias/addendum.pdf)
 This notebook checks an additional case concerning why r^1 and r^2 do not appear inversely related.
 
-## [Examples](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/examples.pdf)
+## [Examples](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/opposite_bias/examples.pdf)
 This notebook expands on the above by providing some printouts of the variables and exploring agenda-dependent cost.
 
-## [Finite Horizon](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/finite_horizon.pdf)
+## [Finite Horizon](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/opposite_bias/finite_horizon.pdf)
 This notebook repeats the above with a finite horizon model instead of an infinite horizon one.
 
-## [r_1 vs r_2](https://github.com/jbrightuniverse/strategic_influencer_of_naive_agents/blob/main/opposite_bias/r1_vs_r2.pdf)
+## [r_1 vs r_2](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/opposite_bias/r1_vs_r2.pdf)
 This notebook plots the message sequences against each other for various points in time. It also explains why the K matrix stays relatively constant for much of the periods in the model.
