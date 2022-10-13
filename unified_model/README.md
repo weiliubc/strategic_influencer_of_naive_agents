@@ -61,3 +61,8 @@ This notebook computes some numeric and symbolic verifications of closed-form so
 
 ### [Integrated Bot Model (Highly Symmetric Case): Comparative Statics for k2](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/unified_model/integrated_bot_model_highly_symmetric_k2.ipynb)
 This notebook performs comparative statics for $k_2$ and, in doing so, $k_1$. It was observed that k1/delta, k2/delta, k1/c and k2/c decrease in their respective denominator variables, whilst delta\*k1 and delta\*k2 increase in delta.
+
+## October 2022
+
+### [Unified Model with Multiple Strategic Agents: Fully Symmetric Case](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/unified_model/multiple_unified_symmetric.ipynb)
+This notebook provides an initial test of the unified model version of the multiple strategic agent model. Only the symmetric case i.e. symmetric and Markov network combined with symmetric strategic agents having zero-level agendas is covered so far. It was observed that, for the tested matrix, an increase in $L$ causes a decrease in the absolute values of opinions and optimal messages. This is robust with respect to increases in $c$, at least for the tested increase.
