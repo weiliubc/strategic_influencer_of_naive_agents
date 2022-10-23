@@ -69,3 +69,6 @@ This notebook provides an initial test of the unified model version of the multi
 
 ### [Unified Model with Multiple Strategic Agents: Symmetric Finite-Horizon Analysis](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/unified_model/mus_finite.ipynb)
 This notebook prints out the resulting finite-horizon $K_t$, $MK_t$ and $L_t$ for various values of the number of strategic agents $M$, including for approaching the upper limiting case. Periodicity in $K_t$, $MK_t$ and $L_t$ begins to occur from $M = 3$ upwards.
+
+###[Unified Model with Multiple Strategic Agents: Unfinished Symmetric Finite-Horizon Induction Proof](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/unified_model/mus_finite_induction.ipynb)
+An unfinished attempt at showing $K_t$ is decreasing in $M$ and $MK_t$ is increasing in $M$.
