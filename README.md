@@ -25,8 +25,13 @@ This contains symbolic analysis.
 ### [Core-Peripheral Networks](https://github.com/weiliubc/strategic_influencer_of_naive_agents/tree/main/core_peripheral_networks)
 This contains results related to targeting in the core-peripheral model.
 
-### [Unified Model](https://github.com/weiliubc/strategic_influencer_of_naive_agents/tree/main/unified_model)
+## Unified Model
+
+### [Single-Strategic-Agent Unified Model](https://github.com/weiliubc/strategic_influencer_of_naive_agents/tree/main/unified_model)
 This contains results related to the new unified model.
+
+### [Multiple-Strategic-Agent Unified Model](https://github.com/weiliubc/strategic_influencer_of_naive_agents/tree/main/unified_multiple_strategic)
+This contains results related to the unified model under the presence of multiple strategic agents.
 
 ## Targeting Model
 
