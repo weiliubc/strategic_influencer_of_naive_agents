@@ -23,3 +23,5 @@ The above notebook but repeated for a symmetric, stubborn network with agenda pa
 
 ### [Convergence Analysis w.r.t. Numerical Error: Experimentation](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/unified_multiple_strategic/mus_weighted_scaled_up.ipynb)
 This notebook provides some test cases that demonstrate how apparent convergence may or may not actually be convergence after accounting for the "propagation" effect of numerical error.
+
+This is not included in the notebook but the command `run_simulation(-2000000, 500000, 0.5, 0.6, c = 0.001)` was able to produce a result with significantly different limit opinions.
