@@ -6,7 +6,7 @@ This is a folder containing 2023 results for the multiple strategic agent case.
 These are past notebooks which contain relevant code to the 2023 version of the unified model.
 
 ### [Analysis of MK*](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/mk_star.ipynb)
-This notebook demonstrates numerically some cases of the observation that MK*(M) is increasing in M.
+This notebook demonstrates numerically some cases of the observation that MK*(M) is increasing in M. A symbolic verification of the theoretical proof is [here](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/mk_star_sign.ipynb).
 
 ### [Revised Bot Model](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/revised_bot_model.ipynb), a [fix to one of the expressions](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/revised_bot_model_redo.ipynb), a [different example under the same fix](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/revised_bot_model_redo2.ipynb), and a [symbolic derivation](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/symbolic_bot_K_verification.ipynb)
 These notebooks verify formulas for the revised bot model under the unified framework.
