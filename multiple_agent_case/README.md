@@ -10,3 +10,6 @@ This notebook demonstrates numerically some cases of the observation that MK*(M)
 
 ### [Revised Bot Model](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/revised_bot_model.ipynb), a [fix to one of the expressions](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/revised_bot_model_redo.ipynb), a [different example under the same fix](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/revised_bot_model_redo2.ipynb), and a [symbolic derivation](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/symbolic_bot_K_verification.ipynb)
 These notebooks verify formulas for the revised bot model under the unified framework.
+
+### [Limit Opinion Consensus Check for Symmetric Case](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/mus_weighted_symmetric_consensus_check.ipynb)
+A preliminary notebook indicating evidence that there is consensus under different strategic agent weights for the symmetric network case.
