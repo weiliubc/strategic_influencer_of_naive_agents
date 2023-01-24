@@ -13,3 +13,6 @@ These notebooks verify formulas for the revised bot model under the unified fram
 
 ### [Limit Opinion Consensus Check for Symmetric Case](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/mus_weighted_symmetric_consensus_check.ipynb)
 A preliminary notebook indicating evidence that there is consensus under different strategic agent weights for the symmetric network case.
+
+### [No-Consensus Case](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/clear_non_consensus.ipynb)
+Expanded printouts for the case where the limit opinions do not agree.
