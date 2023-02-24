@@ -12,7 +12,7 @@ This notebook demonstrates numerically some cases of the observation that MK*(M)
 These notebooks verify formulas for the revised bot model under the unified framework.
 
 ### [Limit Opinion Consensus Check for Symmetric Case](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/mus_weighted_symmetric_consensus_check.ipynb)
-A preliminary notebook indicating evidence that there is consensus under different strategic agent weights for the symmetric network case.
+A preliminary notebook indicating evidence that there is consensus under different strategic agent weights for the symmetric network case. (Updated February 2023 with payoff and message printouts).
 
 ### [No-Consensus Case](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/clear_non_consensus.ipynb)
 Expanded printouts for the case where the limit opinions do not agree.
