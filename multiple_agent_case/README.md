@@ -16,3 +16,11 @@ A preliminary notebook indicating evidence that there is consensus under differe
 
 ### [No-Consensus Case](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/clear_non_consensus.ipynb)
 Expanded printouts for the case where the limit opinions do not agree.
+
+## March 2023
+
+## [No-Consensus with Opposing Agendas](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/opposing_agenda_non_consensus.ipynb)
+Expanded printouts for the above notebook but with agendas that perfectly oppose each other.
+
+## [No-Consensus with Highly Symmetric Opinion Leader](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/opposing_nonconsensus_symmetric.ipynb)
+An example with the highly symmetric opinion leader networks. There is still no consensus in the limit opinions. The opinions and messages are determined by the weights of the columns in the given matrix.
