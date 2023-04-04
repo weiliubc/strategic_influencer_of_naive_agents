@@ -19,8 +19,13 @@ Expanded printouts for the case where the limit opinions do not agree.
 
 ## March 2023
 
-## [No-Consensus with Opposing Agendas](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/opposing_agenda_non_consensus.ipynb)
+### [No-Consensus with Opposing Agendas](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/opposing_agenda_non_consensus.ipynb)
 Expanded printouts for the above notebook but with agendas that perfectly oppose each other.
 
-## [No-Consensus with Highly Symmetric Opinion Leader](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/opposing_nonconsensus_symmetric.ipynb)
+### [No-Consensus with Highly Symmetric Opinion Leader](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/opposing_nonconsensus_symmetric.ipynb)
 An example with the highly symmetric opinion leader networks. There is still no consensus in the limit opinions. The opinions and messages are determined by the weights of the columns in the given matrix.
+
+## April 2023
+
+### [Extra 3x3 Examples](https://github.com/weiliubc/strategic_influencer_of_naive_agents/blob/main/multiple_agent_case/6_3_1.ipynb)
+Extra printouts for 3x3 highly symmetric opinion leader networks.
